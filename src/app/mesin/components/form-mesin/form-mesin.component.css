@@ -1,0 +1,11 @@
+#pageTitle {
+    background-color: #D9D9D9;
+    width: 100%;
+    display: flex;
+}
+
+#pageTitle a{
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+}

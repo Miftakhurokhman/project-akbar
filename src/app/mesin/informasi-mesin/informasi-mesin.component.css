@@ -1,0 +1,19 @@
+#filteringMenu {
+    display: flex;
+    flex-direction: row-reverse;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+#filteringMenu .row {
+    width: 50%;
+}
+
+#filteringMenu .justButton button {
+    width: 100%;
+}
+
+#filteringMenu .justButton .col {
+    padding: 2px;
+}

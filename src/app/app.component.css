@@ -1,0 +1,67 @@
+/* app.component.css */
+
+/* HEADER */
+.navbar {
+    width: 100vw;
+    background-color: white;
+    height: 55px;
+    position: absolute;
+    top: 0px;
+}
+
+.header {
+    justify-content: flex-start;
+}
+
+.header button {
+    border: none;
+    background: none;
+}
+
+/* SIDEBAR */
+.boxSideBar {
+    position: fixed;
+    top: 55px;
+    left: 0px;
+    height: 100vh;
+    background-color: #29292B;
+    width: 100vw;
+    --bs-gutter-x: 0rem;
+}
+
+.sidebar.open {
+    transition: 800ms;
+    width: 150px;
+}
+
+.sidebar:not(.open) {
+    transition: 800ms;
+    width: 0;
+    overflow-x: hidden;
+}
+
+.boxMenu {
+    color: white;
+    display: flex;
+    height: 50px;
+    overflow-x: hidden;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.boxMenu h6 {
+    margin: 0 0 0 5px;
+    padding: 0;
+    width: max-content;
+}
+
+.sidebar a {
+    padding: 0;
+    cursor: pointer;
+}
+
+
+/* CONTENT */
+.boxContent {
+    background-color: white;
+}
