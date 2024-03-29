@@ -1,5 +1,7 @@
+/* TITLE */
 #pageTitle {
-    background-color: #D9D9D9;
+    background-color: white;
+    border: solid #EFF3F6;;
     width: 100%;
     display: flex;
 }
@@ -8,4 +10,79 @@
     cursor: pointer;
     text-decoration: none;
     color: black;
+}
+
+/* CONTENT */
+
+#boxInput, #formHeader {
+    border: solid 1px;
+    border-color: rgb(227, 227, 227);
+}
+
+
+.row {
+    --bs-gutter-x : 0 rem;
+}
+
+#form #formHeader {
+    padding: 10px;
+    display: flex;
+    background-color: #EFF3F6;
+    border-radius: 4px 4px 0 0;
+}
+
+#form form {
+    margin: 20px;
+    
+}
+
+#form #boxInput {
+    background-color: white;
+    border-radius: 0 0 4px 4px;
+}
+
+form .boxInputCol {
+    margin: 10px 0;
+}
+
+form .label {
+    width: 40%;
+}
+
+form .inputCol {
+    width: 60%;
+}
+
+
+/* .inputCol textarea {
+    width: 100%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .38rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    resize: vertical;
+}
+
+.inputCol textarea:focus {
+    outline: none;
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); 
+} */
+
+
+
+
+@media screen and (max-width: 700px) {
+    form .titikDua {
+        display: none;
+    }
+
+    form .inputCol {
+        margin: 10px 0 10px 10px;
+        width: 100%;
+    }
 }

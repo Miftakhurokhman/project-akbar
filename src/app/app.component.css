@@ -1,7 +1,12 @@
 /* app.component.css */
+/* BODY */
+.body {
+    width: 100vw;
+    height: 100vh;
+}
 
 /* HEADER */
-.navbar {
+.body .navbar {
     width: 100vw;
     background-color: white;
     height: 55px;
@@ -9,38 +14,38 @@
     top: 0px;
 }
 
-.header {
+.body .header {
     justify-content: flex-start;
 }
 
-.header button {
+.body .header button {
     border: none;
     background: none;
 }
 
 /* SIDEBAR */
-.boxSideBar {
+.body .boxSideBar {
     position: fixed;
     top: 55px;
     left: 0px;
-    height: 100vh;
+    height: 100%;
     background-color: #29292B;
     width: 100vw;
     --bs-gutter-x: 0rem;
 }
 
-.sidebar.open {
+.body .sidebar.open {
     transition: 800ms;
     width: 150px;
 }
 
-.sidebar:not(.open) {
+.body .sidebar:not(.open) {
     transition: 800ms;
     width: 0;
     overflow-x: hidden;
 }
 
-.boxMenu {
+.body .boxMenu {
     color: white;
     display: flex;
     height: 50px;
@@ -49,19 +54,37 @@
     padding: 10px 20px;
 }
 
-.boxMenu h6 {
+.body .boxMenu h6 {
     margin: 0 0 0 5px;
     padding: 0;
     width: max-content;
 }
 
-.sidebar a {
+.body .sidebar a {
     padding: 0;
     cursor: pointer;
 }
 
-
 /* CONTENT */
 .boxContent {
-    background-color: white;
+    height: 90%;
+    background-color: #E3E5E7;
+}
+
+
+/* CONTENT DARI COMPONENT LAIN */
+.boxContentChild {
+    height: 100%;
+    overflow-y: scroll;
+    padding: 20px;
+}
+
+/* Untuk browser WebKit (Chrome, Safari) */
+.boxContentChild::-webkit-scrollbar {
+    width: 0;
+}
+
+/* Untuk browser lainnya */
+.boxContentChild {
+    scrollbar-width: none;
 }

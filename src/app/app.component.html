@@ -1,82 +1,70 @@
-<nav class="navbar navbar-expand-lg">
-  <div class="container-fluid header">
-    <button (click)="toggleSidebar()" type="button" [attr.data-bs-toggle]="'collapse'" [attr.data-bs-target]="'#navbarNav'" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <h4 class="m-0 p-0" style="font-weight: bold;">E-Check Sheet</h4>
-  </div>
-</nav>
-<div class="row boxSideBar">
-  <nav class=" m-0 p-0 col-2 d-none d-md-block sidebar" #sidebar>
-    <div class="sidebar-sticky">
-      <ul class="nav flex-column">
-        <li class="nav-item">
-          <a class="nav-link" (click)="openPage('')">
-            <div class="boxMenu">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-border-all" viewBox="0 0 16 16">
-                <path d="M0 0h16v16H0zm1 1v6.5h6.5V1zm7.5 0v6.5H15V1zM15 8.5H8.5V15H15zM7.5 15V8.5H1V15z"/>
-              </svg>
-              <h6>
-                Dashboard
-              </h6>
-            </div>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" (click)="openPage('mesin')">
-            <div class="boxMenu">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-border-all" viewBox="0 0 16 16">
-                <path d="M0 0h16v16H0zm1 1v6.5h6.5V1zm7.5 0v6.5H15V1zM15 8.5H8.5V15H15zM7.5 15V8.5H1V15z"/>
-              </svg>
-              <h6>
-                Master Data
-              </h6>
-            </div>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link">
-            <div class="boxMenu">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-border-all" viewBox="0 0 16 16">
-                <path d="M0 0h16v16H0zm1 1v6.5h6.5V1zm7.5 0v6.5H15V1zM15 8.5H8.5V15H15zM7.5 15V8.5H1V15z"/>
-              </svg>
-              <h6>
-                Transaksi
-              </h6>
-            </div>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link">
-            <div class="boxMenu">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-border-all" viewBox="0 0 16 16">
-                <path d="M0 0h16v16H0zm1 1v6.5h6.5V1zm7.5 0v6.5H15V1zM15 8.5H8.5V15H15zM7.5 15V8.5H1V15z"/>
-              </svg>
-              <h6>
-                Report
-              </h6>
-            </div>
-          </a>
-        </li>
-      </ul>
+<div class="body">
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid header">
+      <button (click)="toggleSidebar()" type="button" [attr.data-bs-toggle]="'collapse'" [attr.data-bs-target]="'#navbarNav'" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <h4 class="m-0 p-0" style="font-weight: bold;">E-Check Sheet</h4>
     </div>
   </nav>
-  
-  <div class="col boxContent p-0 ml-sm-auto">
-    <router-outlet></router-outlet>
-    <!-- <div id="pageTitle" class="p-2" style="
-      background-color: #D9D9D9;
-      width: 100%;
-    ">
-      <h6 class="m-0 p-0" style="font-weight: bold;">Home / Master Data</h6>
-    </div>
-    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-      <h1 class="h2">Main Content</h1>
-    </div>
-    <div class="row">
-      <div class="col">
-        <p>This is the main content area. You can add your content here.</p>
+  <div class="row boxSideBar">
+    <nav class=" m-0 p-0 col-2 d-none d-md-block sidebar" #sidebar>
+      <div class="sidebar-sticky">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link" (click)="openPage('')">
+              <div class="boxMenu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-border-all" viewBox="0 0 16 16">
+                  <path d="M0 0h16v16H0zm1 1v6.5h6.5V1zm7.5 0v6.5H15V1zM15 8.5H8.5V15H15zM7.5 15V8.5H1V15z"/>
+                </svg>
+                <h6>
+                  Dashboard
+                </h6>
+              </div>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="openPage('mesin')">
+              <div class="boxMenu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-border-all" viewBox="0 0 16 16">
+                  <path d="M0 0h16v16H0zm1 1v6.5h6.5V1zm7.5 0v6.5H15V1zM15 8.5H8.5V15H15zM7.5 15V8.5H1V15z"/>
+                </svg>
+                <h6>
+                  Master Data
+                </h6>
+              </div>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link">
+              <div class="boxMenu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-border-all" viewBox="0 0 16 16">
+                  <path d="M0 0h16v16H0zm1 1v6.5h6.5V1zm7.5 0v6.5H15V1zM15 8.5H8.5V15H15zM7.5 15V8.5H1V15z"/>
+                </svg>
+                <h6>
+                  Transaksi
+                </h6>
+              </div>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link">
+              <div class="boxMenu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-border-all" viewBox="0 0 16 16">
+                  <path d="M0 0h16v16H0zm1 1v6.5h6.5V1zm7.5 0v6.5H15V1zM15 8.5H8.5V15H15zM7.5 15V8.5H1V15z"/>
+                </svg>
+                <h6>
+                  Report
+                </h6>
+              </div>
+            </a>
+          </li>
+        </ul>
       </div>
-    </div> -->
+    </nav>
+    
+    <div class="col boxContent p-0 ml-sm-auto">
+      <router-outlet></router-outlet>
+    </div>
   </div>
 </div>

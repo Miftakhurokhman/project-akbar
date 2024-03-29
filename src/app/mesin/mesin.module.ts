@@ -4,6 +4,7 @@ import { InformasiMesinComponent } from './informasi-mesin/informasi-mesin.compo
 import { ListMesinComponent } from './components/list-mesin/list-mesin.component';
 import { FormMesinComponent } from './components/form-mesin/form-mesin.component';
 import { RouterModule, Routes } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
   
@@ -21,11 +22,12 @@ const routes: Routes = [
   declarations: [
     InformasiMesinComponent,
     ListMesinComponent,
-    FormMesinComponent
+    FormMesinComponent,
   ],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
+    ReactiveFormsModule
   ]
 })
 export class MesinModule { }
