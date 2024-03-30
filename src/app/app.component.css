@@ -121,6 +121,7 @@
 }
 
 .body #blockWindow {
+    display: none;
     background-color: rgba(48, 53, 59, 0.2);
     z-index: 4;
     position: fixed;
@@ -204,6 +205,10 @@
 
 
 @media screen and (max-width: 600px) {
+    .body #blockWindow {
+        display: flex;
+    }
+
     .body .boxSideBar .sidebar {
         width: 0px;
         z-index: 5;
