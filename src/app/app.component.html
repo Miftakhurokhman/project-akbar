@@ -8,9 +8,9 @@
     </div>
   </nav>
   <div class="row boxSideBar">
-    <nav class=" m-0 p-0 col-2 sidebar" #sidebar>
+    <nav class=" m-0 p-0 col-2 sidebar" [ngClass]="{'open' : openSideBar, 'close' : !openSideBar}">
       <div class="sidebar-sticky">
-        <ul class="nav flex-column boxListMenu">
+        <ul class="nav flex-column boxListMenu" [ngClass]="{'open' : openSideBar, 'close' : !openSideBar}">
           <li class="nav-item w-70">
             <a class="nav-link" routerLinkActive="activeMenu" routerLink="/dashboard" (click)="openPage('dashboard')">
               <div class="boxMenu">
@@ -58,4 +58,8 @@
       <router-outlet></router-outlet>
     </div>
   </div>
+
+  <div id="blockWindow" (click)="toggleSidebar()" [ngClass]="{'display' : openSideBar, 'notDisplay' : !openSideBar}">
+  </div>
 </div>
+

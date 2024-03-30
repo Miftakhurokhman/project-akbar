@@ -7,10 +7,9 @@
 
 /* HEADER */
 .body .navbar {
-    width: 100vw;
+    width: 100%;
     background-color: white;
     height: 55px;
-    position: absolute;
     top: 0px;
 }
 
@@ -25,31 +24,35 @@
 
 /* SIDEBAR */
 .body .boxSideBar {
-    position: fixed;
-    top: 55px;
-    left: 0px;
-    height: 100%;
+    height: calc(100vh - 55px);
     background-color: #30353B;
-    width: 100vw;
+    width: 100%;
     --bs-gutter-x: 0rem;
 }
 
-.body .sidebar.open {
+.body .boxSideBar .sidebar {
+    height: calc(100vh - 55px);
     transition: 400ms;
-    width: 200px;
+    width: 0px;
 }
 
-.body .sidebar:not(.open) {
+.body .boxSideBar .open {
+    width: 200px;
     transition: 400ms;
-    width: 0;
-    overflow-x: hidden;
+}
+
+.body .boxSideBar .close {
+    width: 0px;
+    transition: 400ms;
 }
 
 .body .sidebar .sidebar-sticky {
-    height: 90%;
+    height: 100%;
+    overflow-x: hidden;
 }
 
 .body .sidebar .sidebar-sticky .boxListMenu {
+    background-color: #30353B;
     height: 100%;
     overflow-y: scroll;
     scrollbar-width: 0px;
@@ -117,17 +120,28 @@
     cursor: pointer;
 }
 
+.body #blockWindow {
+    background-color: rgba(48, 53, 59, 0.2);
+    z-index: 4;
+    position: fixed;
+    top: 55px;
+    left: 0px;
+    width: calc(100vw);
+    height: calc(100vh - 55px);
+}
+
 /* CONTENT */
 .body .boxContent {
     z-index: 3;
-    height: 100%;
+    height: calc(100vh - 55px);
+    width: calc(100vw - 200px);
     background-color: #E3E5E7;
 }
 
 
 /* CONTENT DARI COMPONENT LAIN */
 .boxContentChild {
-    height: 80%;
+    height: calc(100vh - 105px);
     overflow-y: scroll;
     padding: 20px;
 }
@@ -189,3 +203,40 @@
 }
 
 
+@media screen and (max-width: 600px) {
+    .body .boxSideBar .sidebar {
+        width: 0px;
+        z-index: 5;
+        position: fixed;
+        top: 55px;
+        left: 0px;
+    }
+
+
+    .body .boxContent {
+        z-index: 3;
+        height: calc(100vh - 55px);
+        width: calc(100vw);
+        background-color: #E3E5E7;
+    }
+
+    .body .display {
+        display: flex;
+        transition: 400ms;
+    }
+
+    .body .notDisplay {
+        display: none;
+        transition: 400ms;
+    }
+
+    .body .boxSideBar .open {
+        width: 200px;
+        transition: 400ms;
+    }
+    
+    .body .boxSideBar .close {
+        width: 0px;
+        transition: 400ms;
+    }
+  }

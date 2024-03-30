@@ -11,6 +11,7 @@ import { filter } from 'rxjs/operators'; // Import filter operator
 export class AppComponent implements OnInit {
   title = 'industriesApp';
 
+  openSideBar = false;
   masterDataIsOpened = false;
   masterDataOpened = [
     {
@@ -72,7 +73,7 @@ export class AppComponent implements OnInit {
 
   // Method to toggle the sidebar
   toggleSidebar() {
-    this.sidebar.nativeElement.classList.toggle('open');
+    this.openSideBar = !this.openSideBar;
   }
 
   openPage(pageName: string) {
