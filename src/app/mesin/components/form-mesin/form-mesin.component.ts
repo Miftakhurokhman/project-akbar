@@ -59,6 +59,7 @@ export class FormMesinComponent implements OnInit {
   ngOnInit(): void {
       // CHECKING TIPE FORM
       this.activatedRoute.queryParams.subscribe( params => {
+        this.reactiveForm.reset();
         this.action.name = params['action']
         if (this.action.name === "add") {
         }
@@ -70,7 +71,7 @@ export class FormMesinComponent implements OnInit {
 
       // MEMBUAT BUTTON SAVE DISABLE SAAT VALUE DARI FORM TIDAK SESUAI
       this.reactiveForm.valueChanges.subscribe(() => {
-        this.btnSaveDisable = this.reactiveForm.invalid || this.checkKodeWIP();
+        this.btnSaveDisable = this.checkKodeWIP() || this.reactiveForm.invalid;
       });
 
 

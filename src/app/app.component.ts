@@ -83,6 +83,8 @@ export class AppComponent implements OnInit {
       this.router.navigate(['/dashboard'])
     } else if (pageName === 'gedung') {
       this.router.navigate(['/master-data', 'gedung', 'list-gedung'])
+    } else if (pageName === 'kode-wip') {
+      this.router.navigate(['/master-data', 'kode-wip', 'list-kode-wip'])
     }
   }
 
