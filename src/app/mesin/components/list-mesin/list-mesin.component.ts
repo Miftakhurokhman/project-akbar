@@ -12,7 +12,7 @@ export class ListMesinComponent {
 
   openPage(pageName: string) {
     if (pageName==="add") {
-      this.router.navigate(['/mesin', 'add-mesin'], {queryParams:{action:'add'}})
+      this.router.navigate(['/master-data', 'mesin', 'form-mesin'], {queryParams:{action:'add'}})
     }
   }
 } 
