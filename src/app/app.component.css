@@ -29,29 +29,77 @@
     top: 55px;
     left: 0px;
     height: 100%;
-    background-color: #29292B;
+    background-color: #30353B;
     width: 100vw;
     --bs-gutter-x: 0rem;
 }
 
 .body .sidebar.open {
-    transition: 800ms;
-    width: 150px;
+    transition: 400ms;
+    width: 200px;
 }
 
 .body .sidebar:not(.open) {
-    transition: 800ms;
+    transition: 400ms;
     width: 0;
     overflow-x: hidden;
+}
+
+.body .sidebar .sidebar-sticky {
+    height: 90%;
+}
+
+.body .sidebar .sidebar-sticky .boxListMenu {
+    height: 100%;
+    overflow-y: scroll;
+    scrollbar-width: 0px;
+    width: 200px;
+}
+
+.body .sidebar .sidebar-sticky .boxListMenu::-webkit-scrollbar {
+    width: 0;
+}
+
+.body .mat-expansion-panel:not([class*=mat-elevation-z]) {
+    box-shadow: none;
+}
+
+.body mat-expansion-panel-header {
+    padding: 0;
+}
+
+.body .mat-expansion-indicator {
+    color: white;
+    border: white;
+    margin-right: 20px;
+}
+
+.body .mat-expansion-panel-body {
+    padding: 0;
+}
+
+.body mat-expansion-panel {
+    background: none;
+}
+
+.body .activeMenu {
+    background-color: #26292E;
+}
+
+.body .activeChildMenu {
+    background-color: #30353B;
 }
 
 .body .boxMenu {
     color: white;
     display: flex;
     height: 50px;
-    overflow-x: hidden;
     align-items: center;
     padding: 10px 20px;
+}
+
+.body .childMenu .boxMenu {
+    padding:  10px 20px 10px 30px;
 }
 
 .body .boxMenu h6 {
@@ -67,6 +115,7 @@
 
 /* CONTENT */
 .boxContent {
+    z-index: 3;
     height: 90%;
     background-color: #E3E5E7;
 }
@@ -74,7 +123,6 @@
 
 /* CONTENT DARI COMPONENT LAIN */
 .boxContentChild {
-    height: 100%;
     overflow-y: scroll;
     padding: 20px;
 }
