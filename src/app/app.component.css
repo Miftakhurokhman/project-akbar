@@ -98,11 +98,15 @@
     padding: 10px 20px;
 }
 
+.body ul {
+    display: block;
+}
+
 .body .childMenu .boxMenu {
     padding:  10px 20px 10px 30px;
 }
 
-.body .boxMenu h6 {
+.body .boxMenu h5 {
     margin: 0 0 0 5px;
     padding: 0;
     width: max-content;
@@ -114,16 +118,63 @@
 }
 
 /* CONTENT */
-.boxContent {
+.body .boxContent {
     z-index: 3;
-    height: 90%;
+    height: 100%;
     background-color: #E3E5E7;
 }
 
 
 /* CONTENT DARI COMPONENT LAIN */
 .boxContentChild {
+    height: 80%;
     overflow-y: scroll;
+    padding: 20px;
+}
+
+
+#pageTitle {
+    background-color: white;
+    border: solid #EFF3F6;;
+    height: 50px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+#pageTitle a{
+    cursor: pointer;
+    text-decoration: none;
+    color: grey;
+}
+
+#pageTitle a:hover {
+    color: #63BEE2;
+}
+
+.form-control {
+    font-size: calc(14px* .83) /* Ubah ukuran font menjadi h5 */
+}
+
+.form-select {
+    font-size: calc(14px* .83) /* Ubah ukuran font menjadi h5 */
+}
+
+.boxInput, .formHeader {
+    border: solid 1px;
+    border-color: rgb(227, 227, 227);
+}
+
+.form .formHeader {
+    padding: 10px;
+    display: flex;
+    background-color: #EFF3F6;
+    border-radius: 4px 4px 0 0;
+}
+
+.form .boxInput {
+    background-color: white;
+    border-radius: 0 0 4px 4px;
     padding: 20px;
 }
 
@@ -136,3 +187,5 @@
 .boxContentChild {
     scrollbar-width: none;
 }
+
+

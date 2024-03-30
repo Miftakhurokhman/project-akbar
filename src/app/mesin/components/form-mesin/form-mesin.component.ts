@@ -66,11 +66,13 @@ export class FormMesinComponent implements OnInit {
       })
 
       // UPPERCASE KODE WIP
-      this.reactiveForm.get('kodeWIP')?.valueChanges.subscribe(value => {
-        if (value !== null) {
-          this.reactiveForm.get('kodeWIP')?.patchValue(value.toUpperCase(), { emitEvent: false });
-        }
-      });
+      this.uppercaseValue("kodeWIP");
+      this.uppercaseValue('uomWIP')
+      // this.reactiveForm.get('kodeWIP')?.valueChanges.subscribe(value => {
+      //   if (value !== null) {
+      //     this.reactiveForm.get('kodeWIP')?.patchValue(value.toUpperCase(), { emitEvent: false });
+      //   }
+      // });
 
       // MEMBUAT BUTTON SAVE DISABLE SAAT VALUE DARI FORM TIDAK SESUAI
       this.reactiveForm.valueChanges.subscribe(() => {
@@ -96,6 +98,14 @@ export class FormMesinComponent implements OnInit {
       });
   }
 
+  uppercaseValue(colName: string) {
+    this.reactiveForm.get(colName)?.valueChanges.subscribe(value => {
+      if (value !== null) {
+        this.reactiveForm.get(colName)?.patchValue(value.toUpperCase(), { emitEvent: false });
+      }
+    });
+  }
+
   checkValidation(index: number) {
     
       const value = this.reactiveForm.get(this.validFormStatus[index].colName)
@@ -109,7 +119,7 @@ export class FormMesinComponent implements OnInit {
 
   openPage(pageName : string) {
     if (pageName ==="list-mesin") {
-      this.router.navigate(['/mesin', 'list-mesin'])
+      this.router.navigate(['/master-data', 'mesin', 'list-mesin'])
     }
   }
 }

@@ -1,31 +1,53 @@
-#pageTitle {
-    background-color: #D9D9D9;
-    width: 100%;
-    display: flex;
-}
-
-#pageTitle a{
-    cursor: pointer;
-    text-decoration: none;
-    color: black;
-}
-
 #filteringMenu {
-    display: flex;
-    flex-direction: row-reverse;
+    /* display: flex;
+    flex-direction: row-reverse; */
     width: 100%;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-between
 }
 
 #filteringMenu .row {
     width: 50%;
 }
 
-#filteringMenu .justButton button {
+/* #filteringMenu .justButton button {
     width: 100%;
-}
+} */
 
 #filteringMenu .justButton .col {
     padding: 2px;
 }
+
+/* TABLE */
+/* Gaya untuk table */
+table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  /* Gaya untuk header kolom */
+  th {
+    border: 1px solid #dddddd;
+    padding: 0;
+    text-align: center;
+  }
+  
+  /* Gaya untuk sel */
+  td {
+    border: 1px solid #dddddd;
+    padding: 0;
+    text-align: center;
+  }
+
+  tr:nth-child(odd) td {
+    background-color: #F2F2F2; /* warna abu-abu */
+  }
+  
+  /* Gaya untuk sel pada baris genap */
+  tr:nth-child(even) td {
+    background-color: #ffffff; /* warna putih */
+  }
+
+  .mat-elevation-z8, .mat-mdc-elevation-specific.mat-elevation-z8 {
+    box-shadow: none;
+  }
