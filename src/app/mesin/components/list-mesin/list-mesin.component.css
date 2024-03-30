@@ -27,14 +27,14 @@ table {
   
   /* Gaya untuk header kolom */
   th {
-    border: 1px solid #dddddd;
+    border: 1px solid #c4c3c3;
     padding: 0;
     text-align: center;
   }
   
   /* Gaya untuk sel */
   td {
-    border: 1px solid #dddddd;
+    border: 1px solid #c4c3c3;
     padding: 0;
     text-align: center;
   }

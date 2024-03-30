@@ -158,11 +158,11 @@
                 </div>
                 <br>
                 <div class="d-flex justify-content-between">
-                    <button type="button" class="btn btn-pill btn-secondary float-left rounded-4"><i class="fa fa-backward"> </i>
+                    <button (click)="openPage('list-mesin')" type="button" class="btn btn-pill btn-secondary float-left rounded-4"><i class="fa fa-backward"> </i>
                         <h5 class="m-0 p-0" style="font-weight: bold;">Back</h5>
                     </button>
                     <button [disabled]="btnSaveDisable" type="button" class="btn btn-pill btn-success float-right rounded-4" style="color: black;" ><i class="fa fa-save"> </i><strong>
-                        <h5 class="m-0 p-0" style="font-weight: bold;">Save</h5>
+                        <h5 class="m-0 p-0" style="font-weight: bold;" (click)="saveData()">Save</h5>
                     </strong></button>
                 </div>
             </form>

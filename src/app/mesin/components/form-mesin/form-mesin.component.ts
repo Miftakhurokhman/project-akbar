@@ -53,30 +53,24 @@ export class FormMesinComponent implements OnInit {
     deskripsi : [null, Validators.required],
     uomWIP : [null, Validators.required],
     idProses : [null, Validators.required],
-    status : [null, Validators.required]
+    status : ["Yes", Validators.required]
   })
 
   ngOnInit(): void {
       // CHECKING TIPE FORM
-      this.activatedRoute.params.subscribe( params => {
+      this.activatedRoute.queryParams.subscribe( params => {
         this.action.name = params['action']
         if (this.action.name === "add") {
-          this.action.id = params['id']
         }
       })
 
       // UPPERCASE KODE WIP
       this.uppercaseValue("kodeWIP");
       this.uppercaseValue('uomWIP')
-      // this.reactiveForm.get('kodeWIP')?.valueChanges.subscribe(value => {
-      //   if (value !== null) {
-      //     this.reactiveForm.get('kodeWIP')?.patchValue(value.toUpperCase(), { emitEvent: false });
-      //   }
-      // });
 
       // MEMBUAT BUTTON SAVE DISABLE SAAT VALUE DARI FORM TIDAK SESUAI
       this.reactiveForm.valueChanges.subscribe(() => {
-        this.btnSaveDisable = this.reactiveForm.invalid;
+        this.btnSaveDisable = this.reactiveForm.invalid || this.checkKodeWIP();
       });
 
 
@@ -87,15 +81,17 @@ export class FormMesinComponent implements OnInit {
       this.reactiveForm.get("idProses")?.valueChanges.subscribe(() => {this.checkValidation(3)});
       this.reactiveForm.get("status")?.valueChanges.subscribe(() => {this.checkValidation(4)});
       
-      // CHECKING APAKAH ID TELAH DIGUNAKAN
-      this.reactiveForm.get("kodeWIP")?.valueChanges.subscribe((value) => {
-        console.log(value)
-        if (this.dummyListID.find((id) => id === value?.toUpperCase())) {
-          this.kodeWipAlreadyExist = true;
-        } else {
-          this.kodeWipAlreadyExist = false;
-        }
-      });
+  }
+
+// CHECKING APAKAH ID TELAH DIGUNAKAN
+  checkKodeWIP (): boolean {
+    if (this.dummyListID.find((id) => id === this.reactiveForm.get("kodeWIP")?.value?.toUpperCase() )) {
+      this.kodeWipAlreadyExist = true;
+      return true
+    } else {
+      this.kodeWipAlreadyExist = false;
+      return false
+    }
   }
 
   uppercaseValue(colName: string) {
@@ -120,6 +116,15 @@ export class FormMesinComponent implements OnInit {
   openPage(pageName : string) {
     if (pageName ==="list-mesin") {
       this.router.navigate(['/master-data', 'mesin', 'list-mesin'])
+    }
+  }
+
+  saveData() {
+    if (this.action.name === 'add') {
+      
+    console.log('tes');
+    
+      console.log(this.reactiveForm.value)
     }
   }
 }
