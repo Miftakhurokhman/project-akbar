@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ListGedungComponent } from './components/list-gedung/list-gedung.component';
 import { RouterModule, Routes } from '@angular/router';
 import { FormGedungComponent } from './components/form-gedung/form-gedung.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
   
@@ -25,7 +25,8 @@ const routes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ]
 })
 export class GedungModule { }

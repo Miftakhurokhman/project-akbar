@@ -11,38 +11,230 @@ export class ListMesinComponent implements OnInit {
 
   constructor(private router:Router) {}
 
+  searchValue = "";
   dataIsNotEmpty = true;
-  allData: { position: number, name: string, weight: number, symbol: string }[] = [
-    { position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H' },
-    { position: 2, name: 'Helium', weight: 4.0026, symbol: 'He' },
-    { position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li' },
-    { position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be' },
-    { position: 5, name: 'Boron', weight: 10.811, symbol: 'B' },
-    { position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C' },
-    { position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N' },
-    { position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O' },
-    { position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F' },
-    { position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne' },
-    { position: 11, name: 'Hydrogen', weight: 1.0079, symbol: 'H' },
-    { position: 12, name: 'Helium', weight: 4.0026, symbol: 'He' },
-    { position: 13, name: 'Lithium', weight: 6.941, symbol: 'Li' },
-    { position: 14, name: 'Beryllium', weight: 9.0122, symbol: 'Be' },
-    { position: 15, name: 'Boron', weight: 10.811, symbol: 'B' },
-    { position: 16, name: 'Carbon', weight: 12.0107, symbol: 'C' },
-    { position: 17, name: 'Nitrogen', weight: 14.0067, symbol: 'N' },
-    { position: 18, name: 'Oxygen', weight: 15.9994, symbol: 'O' },
-    { position: 19, name: 'Fluorine', weight: 18.9984, symbol: 'F' },
-    { position: 20, name: 'Neon', weight: 20.1797, symbol: 'Ne' },
-    { position: 21, name: 'Hydrogen', weight: 1.0079, symbol: 'H' },
-    { position: 22, name: 'Helium', weight: 4.0026, symbol: 'He' },
-    { position: 23, name: 'Lithium', weight: 6.941, symbol: 'Li' },
-    { position: 24, name: 'Beryllium', weight: 9.0122, symbol: 'Be' },
-    { position: 25, name: 'Boron', weight: 10.811, symbol: 'B' },
-    { position: 26, name: 'Carbon', weight: 12.0107, symbol: 'C' },
-    { position: 27, name: 'Nitrogen', weight: 14.0067, symbol: 'N' },
-    { position: 28, name: 'Oxygen', weight: 15.9994, symbol: 'O' },
-    { position: 29, name: 'Fluorine', weight: 18.9984, symbol: 'F' },
-    { position: 20, name: 'Neon', weight: 20.1797, symbol: 'Ne' },
+  allData: any[] = [
+    {
+      id: 1,
+      noMesin: "MESIN1",
+      lokasiMesin: "LOKASI A",
+      kodeGrupMesin: "GRP1",
+      grupMesin: "Group A",
+      idProses: "PROSES1",
+      proses: "Proses Produksi",
+      gedung: "Gedung A",
+      status: "Yes"
+    },
+    {
+      id: 2,
+      noMesin: "MESIN2",
+      lokasiMesin: "LOKASI B",
+      kodeGrupMesin: "GRP2",
+      grupMesin: "Group B",
+      idProses: "PROSES2",
+      proses: "Proses Penyimpanan",
+      gedung: "Gedung B",
+      status: "No"
+    },
+    {
+      id: 3,
+      noMesin: "MESIN3",
+      lokasiMesin: "LOKASI C",
+      kodeGrupMesin: "GRP3",
+      grupMesin: "Group C",
+      idProses: "PROSES3",
+      proses: "Proses Pengemasan",
+      gedung: "Gedung C",
+      status: "Yes"
+    },
+    {
+      id: 4,
+      noMesin: "MESIN4",
+      lokasiMesin: "LOKASI D",
+      kodeGrupMesin: "GRP1",
+      grupMesin: "Group A",
+      idProses: "PROSES2",
+      proses: "Proses Produksi",
+      gedung: "Gedung D",
+      status: "No"
+    },
+    {
+      id: 5,
+      noMesin: "MESIN5",
+      lokasiMesin: "LOKASI E",
+      kodeGrupMesin: "GRP2",
+      grupMesin: "Group B",
+      idProses: "PROSES3",
+      proses: "Proses Pengemasan",
+      gedung: "Gedung E",
+      status: "Yes"
+    },
+    {
+      id: 6,
+      noMesin: "MESIN6",
+      lokasiMesin: "LOKASI F",
+      kodeGrupMesin: "GRP3",
+      grupMesin: "Group C",
+      idProses: "PROSES1",
+      proses: "Proses Produksi",
+      gedung: "Gedung F",
+      status: "No"
+    },
+    {
+      id: 7,
+      noMesin: "MESIN7",
+      lokasiMesin: "LOKASI G",
+      kodeGrupMesin: "GRP1",
+      grupMesin: "Group A",
+      idProses: "PROSES2",
+      proses: "Proses Penyimpanan",
+      gedung: "Gedung G",
+      status: "Yes"
+    },
+    {
+      id: 8,
+      noMesin: "MESIN8",
+      lokasiMesin: "LOKASI H",
+      kodeGrupMesin: "GRP2",
+      grupMesin: "Group B",
+      idProses: "PROSES3",
+      proses: "Proses Pengemasan",
+      gedung: "Gedung H",
+      status: "No"
+    },
+    {
+      id: 9,
+      noMesin: "MESIN9",
+      lokasiMesin: "LOKASI I",
+      kodeGrupMesin: "GRP3",
+      grupMesin: "Group C",
+      idProses: "PROSES1",
+      proses: "Proses Produksi",
+      gedung: "Gedung I",
+      status: "Yes"
+    },
+    {
+      id: 10,
+      noMesin: "MESIN10",
+      lokasiMesin: "LOKASI J",
+      kodeGrupMesin: "GRP1",
+      grupMesin: "Group A",
+      idProses: "PROSES2",
+      proses: "Proses Penyimpanan",
+      gedung: "Gedung J",
+      status: "No"
+    },
+    {
+      id: 11,
+      noMesin: "MESIN11",
+      lokasiMesin: "LOKASI K",
+      kodeGrupMesin: "GRP2",
+      grupMesin: "Group B",
+      idProses: "PROSES1",
+      proses: "Proses Produksi",
+      gedung: "Gedung K",
+      status: "Yes"
+    },
+    {
+      id: 12,
+      noMesin: "MESIN12",
+      lokasiMesin: "LOKASI L",
+      kodeGrupMesin: "GRP3",
+      grupMesin: "Group C",
+      idProses: "PROSES2",
+      proses: "Proses Penyimpanan",
+      gedung: "Gedung L",
+      status: "No"
+    },
+    {
+      id: 13,
+      noMesin: "MESIN13",
+      lokasiMesin: "LOKASI M",
+      kodeGrupMesin: "GRP1",
+      grupMesin: "Group A",
+      idProses: "PROSES3",
+      proses: "Proses Pengemasan",
+      gedung: "Gedung M",
+      status: "Yes"
+    },
+    {
+      id: 14,
+      noMesin: "MESIN14",
+      lokasiMesin: "LOKASI N",
+      kodeGrupMesin: "GRP2",
+      grupMesin: "Group B",
+      idProses: "PROSES1",
+      proses: "Proses Produksi",
+      gedung: "Gedung N",
+      status: "No"
+    },
+    {
+      id: 15,
+      noMesin: "MESIN15",
+      lokasiMesin: "LOKASI O",
+      kodeGrupMesin: "GRP3",
+      grupMesin: "Group C",
+      idProses: "PROSES2",
+      proses: "Proses Penyimpanan",
+      gedung: "Gedung O",
+      status: "Yes"
+    },
+    {
+      id: 16,
+      noMesin: "MESIN16",
+      lokasiMesin: "LOKASI P",
+      kodeGrupMesin: "GRP1",
+      grupMesin: "Group A",
+      idProses: "PROSES3",
+      proses: "Proses Pengemasan",
+      gedung: "Gedung P",
+      status: "No"
+    },
+    {
+      id: 17,
+      noMesin: "MESIN17",
+      lokasiMesin: "LOKASI Q",
+      kodeGrupMesin: "GRP2",
+      grupMesin: "Group B",
+      idProses: "PROSES1",
+      proses: "Proses Produksi",
+      gedung: "Gedung Q",
+      status: "Yes"
+    },
+    {
+      id: 18,
+      noMesin: "MESIN18",
+      lokasiMesin: "LOKASI R",
+      kodeGrupMesin: "GRP3",
+      grupMesin: "Group C",
+      idProses: "PROSES2",
+      proses: "Proses Penyimpanan",
+      gedung: "Gedung R",
+      status: "No"
+    },
+    {
+      id: 19,
+      noMesin: "MESIN19",
+      lokasiMesin: "LOKASI S",
+      kodeGrupMesin: "GRP1",
+      grupMesin: "Group A",
+      idProses: "PROSES3",
+      proses: "Proses Pengemasan",
+      gedung: "Gedung S",
+      status: "Yes"
+    },
+    {
+      id: 20,
+      noMesin: "MESIN20",
+      lokasiMesin: "LOKASI T",
+      kodeGrupMesin: "GRP2",
+      grupMesin: "Group B",
+      idProses: "PROSES1",
+      proses: "Proses Produksi",
+      gedung: "Gedung T",
+      status: "No"
+    }
+    
   ];
   displayedData = this.allData;
   pageSize = 5;
@@ -52,9 +244,50 @@ export class ListMesinComponent implements OnInit {
   displayPages: number[] = []
 
   ngOnInit(): void {
+    // panggil api untuk mendapatkan semua data disini, kemudian simpan ke var allData. Dalam kasus ini, data sudah saya isi dengan data dummy. Jadi untuk real case, saat deklarasi variable allData, isinya masih kosong
     this.dataIsNotEmpty = this.allData.length >= 1;
-    console.log("ada data ", this.dataIsNotEmpty)
     this.updateDisplayedData();
+  }
+
+  filteringData () {
+    // fetch data dari api untuk filtering disini dan simpan di all data, untuk mendapatkan data yang sesuai dengan apa yang difilter disini, sebagai contoh, misal filtering mendapatkan data seperti dibawah ini, dan disimpan di dalam allData
+    this.allData = [
+      {
+        noMesin: "MESIN1",
+        lokasiMesin: "LOKASI A",
+        kodeGrupMesin: "GRP1",
+        grupMesin: "Group A",
+        idProses: "PROSES1",
+        proses: "Proses Produksi",
+        gedung: "Gedung A",
+        status: "Yes"
+      },
+      {
+        noMesin: "MESIN2",
+        lokasiMesin: "LOKASI B",
+        kodeGrupMesin: "GRP2",
+        grupMesin: "Group B",
+        idProses: "PROSES2",
+        proses: "Proses Penyimpanan",
+        gedung: "Gedung B",
+        status: "No"
+      },
+      {
+        noMesin: "MESIN3",
+        lokasiMesin: "LOKASI C",
+        kodeGrupMesin: "GRP3",
+        grupMesin: "Group C",
+        idProses: "PROSES3",
+        proses: "Proses Pengemasan",
+        gedung: "Gedung C",
+        status: "Yes"
+      },
+    ]
+    this.changePage(1);
+  }
+
+  clearSearching() {
+    this.searchValue = ""
   }
 
   updateDisplayedData(): void {
@@ -70,8 +303,8 @@ export class ListMesinComponent implements OnInit {
     this.displayPages = []
     if (this.pages.length > 3) {
       let indexDisplayedPages = 0; 
-      if (this.currentPage === this.pages[this.pages.length-1]) { // 8 kurang 1= 7
-        indexDisplayedPages = this.currentPage-3 // 5
+      if (this.currentPage === this.pages[this.pages.length-1]) {
+        indexDisplayedPages = this.currentPage-3
         for (let index = 0; index < 3; index++) {
           this.displayPages.push(this.pages[indexDisplayedPages+index])
         }
@@ -100,9 +333,11 @@ export class ListMesinComponent implements OnInit {
     this.updateDisplayedData();
   }
 
-  openPage(pageName: string) {
+  openPage(pageName: string, id: any) {
     if (pageName==="add") {
       this.router.navigate(['/master-data', 'mesin', 'form-mesin'], {queryParams:{action:'add'}})
+    } else if (pageName === 'edit') {
+      this.router.navigate(['/master-data', 'mesin', 'form-mesin'], {queryParams:{action:'edit', id: id}})
     }
   }
 } 

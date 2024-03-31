@@ -26,6 +26,7 @@ export class FormMesinComponent implements OnInit {
   formIsEdited = true
   noMesinAlreadyExist : boolean = false;
 
+  // value key colName disini juga disesuaikan dengan nama key pada api
   validFormStatus = [
     {
       status : true,
@@ -74,6 +75,7 @@ export class FormMesinComponent implements OnInit {
     status : "Yes"
   }
 
+  // dalam case menggunakan api, sesuaikan nama dari tiap form control (ex : noMesin), sesuai dengan nama key yang di dapat dari api, karena ini mempermudah saat patch value 
   reactiveForm = this.fb.group({
     noMesin: [{ value: '', disabled: true }, Validators.required],
     lokasiMesin: [{ value: '', disabled: true}, Validators.required],
@@ -90,6 +92,8 @@ export class FormMesinComponent implements OnInit {
         this.reactiveForm.reset();
         this.action.name = params['action']
         if (this.action.name === "edit") {
+          this.action.id = params['id']
+          // untuk penggunakan api, panggil api untuk mendapatkan data dari detail disini berdasarkan id pada action.id kemudian masukan data yang di dapatkan ke dalam reactive form dengan  melakukan patchValue. Sebagai contoh, saya patchvalue dari data dummy
           this.reactiveForm.patchValue(this.dummyEditValue);
           this.formIsEdited = false
           // MEMBUAT BUTTON SAVE DISABLE SAAT VALUE DARI FORM TIDAK SESUAI
@@ -198,7 +202,13 @@ export class FormMesinComponent implements OnInit {
 
   saveData() {
     if (this.action.name === 'add') {
+      // panggil api untuk add, untuk mendapatkan value dari form, dapat dilakukan dengan this.reactiveForm.value
       console.log(this.reactiveForm.value)
+    } else if (this.action.name === 'edit') {
+      // metodenya sama seperti add, hanya api yang dipangil merupakan api edit
     }
+
+    // setelah selesai menanbah atau mengedit kembalikan ke page sebelumnya,
+    this.openPage('list-mesin')
   }
 }

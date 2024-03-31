@@ -376,7 +376,11 @@ export class FormSpecParameterComponent implements OnInit {
   saveData() {
     if (this.action.name === 'add') {
       console.log(this.reactiveForm);
+    } else if (this.action.name === 'edit') {
+      console.log(this.reactiveForm.value)
     }
+
+    this.openPage('list-spec-parameter')
   }
 }
 

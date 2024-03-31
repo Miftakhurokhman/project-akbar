@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ListKodeWipComponent } from './components/list-kode-wip/list-kode-wip.component';
 import { FormKodeWipComponent } from './components/form-kode-wip/form-kode-wip.component';
 import { RouterModule, Routes } from '@angular/router';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
   
@@ -25,7 +25,8 @@ const routes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ]
 })
 export class KodeWipModule { }

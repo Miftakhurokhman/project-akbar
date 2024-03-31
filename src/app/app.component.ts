@@ -56,7 +56,7 @@ export class AppComponent implements OnInit {
     }
   ]
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute) {}
+  constructor(private router: Router) {}
 
   @ViewChild('sidebar') sidebar!: ElementRef;
 
@@ -66,7 +66,6 @@ export class AppComponent implements OnInit {
       .subscribe((event: NavigationEnd) => {
         // Get the current URL after redirects
         const currentUrl = event.urlAfterRedirects;
-        console.log('Current URL:', currentUrl);
         this.checkPath(currentUrl);
       });
   }

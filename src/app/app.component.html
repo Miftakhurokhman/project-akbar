@@ -1,14 +1,17 @@
 <div class="body">
   <nav class="navbar navbar-expand-lg">
-    <div class="container-fluid header">
-      <button (click)="toggleSidebar()" type="button" [attr.data-bs-toggle]="'collapse'" [attr.data-bs-target]="'#navbarNav'" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <h4 class="m-0 p-0" style="font-weight: bold;">E-Check Sheet</h4>
+    <div class="container-fluid header d-flex justify-content-between">
+      <div class="d-flex align-items-center">
+        <button (click)="toggleSidebar()" type="button" [attr.data-bs-toggle]="'collapse'" [attr.data-bs-target]="'#navbarNav'" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <h4 class="m-0 p-0" style="font-weight: bold;">E-Check Sheet</h4>
+      </div>
+      <h5 class="m-0 p-0" style="font-weight: bold;">11922</h5>
     </div>
   </nav>
   <div class="row boxSideBar">
-    <nav class=" m-0 p-0 col-2 sidebar" [ngClass]="{'open' : openSideBar, 'close' : !openSideBar}">
+    <nav class="m-0 p-0 col-2 sidebar" [ngClass]="{'open' : openSideBar, 'close' : !openSideBar}">
       <div class="sidebar-sticky">
         <ul class="nav flex-column boxListMenu" [ngClass]="{'open' : openSideBar, 'close' : !openSideBar}">
           <li class="nav-item w-70">
@@ -52,10 +55,19 @@
           </li>
         </ul>
       </div>
+      <div class="footerSideBar">
+        <svg style="margin-left: 20px;" xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/>
+        </svg>
+      </div>
     </nav>
     
     <div class="col boxContent p-0 ml-sm-auto">
       <router-outlet></router-outlet>
+      <div class="footerContent">
+        <h5 class="m-0 p-0 text-secondary">PT Suryaraya Rubberindo Industries</h5>
+        <h5 class="m-0 p-0 text-secondary">CheekSheet Aplication</h5>
+      </div>
     </div>
   </div>
 

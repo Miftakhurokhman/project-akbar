@@ -69,6 +69,8 @@ export class FormActivitasComponent implements OnInit {
         this.reactiveForm.reset();
         this.action.name = params['action']
         if (this.action.name === "edit") {
+          this.action.id = params['id']
+          // panggil api untuk mendapatkan data dari id tersebut
           this.reactiveForm.patchValue(this.dummyEditValue);
           this.formIsEdited = false
           // MEMBUAT BUTTON SAVE DISABLE SAAT VALUE DARI FORM TIDAK SESUAI
@@ -159,7 +161,13 @@ export class FormActivitasComponent implements OnInit {
 
   saveData() {
     if (this.action.name === 'add') {
+      // panggil api untuk add
       console.log(this.reactiveForm.value)
+    } else if (this.action.name === 'edit') {
+      // panggil api untuk edit
     }
+
+    // setelah selesai menanbah atau mengedit kembalikan ke page sebelumnya,
+    this.openPage('list-activitas')
   }
 }

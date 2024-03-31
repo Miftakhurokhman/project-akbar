@@ -149,6 +149,10 @@ export class FormGedungComponent implements OnInit {
   saveData() {
     if (this.action.name === 'add') {
       console.log(this.reactiveForm.value)
+    } else if ( this.action.name === 'edit') {
+      console.log(this.reactiveForm.value)
     }
+
+    this.openPage('list-gedung')
   }
 }

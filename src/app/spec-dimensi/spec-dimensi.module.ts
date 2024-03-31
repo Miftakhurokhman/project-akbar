@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ListSpecDimensiComponent } from './components/list-spec-dimensi/list-spec-dimensi.component';
 import { FormSpecDimensiComponent } from './components/form-spec-dimensi/form-spec-dimensi.component';
 import { RouterModule, Routes } from '@angular/router';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
   
@@ -25,7 +25,8 @@ const routes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ]
 })
 export class SpecDimensiModule { }

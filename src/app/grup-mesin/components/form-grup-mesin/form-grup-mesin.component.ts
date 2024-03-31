@@ -180,7 +180,11 @@ export class FormGrupMesinComponent implements OnInit {
   saveData() {
     if (this.action.name === 'add') {
       console.log(this.reactiveForm.value)
+    } else if (this.action.name === 'edit') {
+      console.log(this.reactiveForm.value)
     }
+
+    this.openPage('list-grup-mesin')
   }
 }
 

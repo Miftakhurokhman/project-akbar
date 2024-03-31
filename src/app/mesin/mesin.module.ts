@@ -3,9 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ListMesinComponent } from './components/list-mesin/list-mesin.component';
 import { FormMesinComponent } from './components/form-mesin/form-mesin.component';
 import { RouterModule, Routes } from '@angular/router';
-import { ReactiveFormsModule } from '@angular/forms';
-import {MatPaginatorModule} from '@angular/material/paginator';
-import {MatTableModule} from '@angular/material/table';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
   
@@ -28,8 +26,7 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forChild(routes),
     ReactiveFormsModule,
-    MatTableModule,
-    MatPaginatorModule
+    FormsModule
   ]
 })
 export class MesinModule { }
