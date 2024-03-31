@@ -11,7 +11,8 @@ export class ListMesinComponent implements OnInit {
 
   constructor(private router:Router) {}
 
-  allData = [
+  dataIsNotEmpty = true;
+  allData: { position: number, name: string, weight: number, symbol: string }[] = [
     { position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H' },
     { position: 2, name: 'Helium', weight: 4.0026, symbol: 'He' },
     { position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li' },
@@ -51,6 +52,8 @@ export class ListMesinComponent implements OnInit {
   displayPages: number[] = []
 
   ngOnInit(): void {
+    this.dataIsNotEmpty = this.allData.length >= 1;
+    console.log("ada data ", this.dataIsNotEmpty)
     this.updateDisplayedData();
   }
 
@@ -61,7 +64,6 @@ export class ListMesinComponent implements OnInit {
     this.totalPages = Math.ceil(this.allData.length / this.pageSize);
     this.pages = Array.from({ length: this.totalPages }, (_, i) => i + 1);
     this.setDisplayPage();
-    console.log(this.pages)
   }
 
   setDisplayPage() {

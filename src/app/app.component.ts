@@ -85,6 +85,16 @@ export class AppComponent implements OnInit {
       this.router.navigate(['/master-data', 'gedung', 'list-gedung'])
     } else if (pageName === 'kode-wip') {
       this.router.navigate(['/master-data', 'kode-wip', 'list-kode-wip'])
+    } else if (pageName === 'grup-mesin') {
+      this.router.navigate(['/master-data', 'grup-mesin', 'list-grup-mesin'])
+    } else if (pageName === 'proses') {
+      this.router.navigate(['/master-data', 'proses', 'list-proses'])
+    } else if (pageName === 'activitas') {
+      this.router.navigate(['/master-data', 'activitas', 'list-activitas'])
+    } else if (pageName === 'spec-dimensi') {
+      this.router.navigate(['/master-data', 'spec-dimensi', 'list-spec-dimensi'])
+    } else if (pageName === 'spec-parameter') {
+      this.router.navigate(['/master-data', 'spec-parameter', 'list-spec-parameter'])
     }
   }
 

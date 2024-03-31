@@ -1,171 +1,251 @@
 <div id="pageTitle" class="p-2">
-      <a (click)="openPage('list-mesin')" (click)="openPage('mesin')">
-        <h5 class="m-0 p-0" style="font-weight: bold;">Mesin</h5>
-      </a>
-      <h5 class="m-0 p-0">
-        &nbsp;/&nbsp;
-      </h5>
-      <a (click)="openPage('list-mesin')">
-        <h5 class="m-0 p-0" style="font-weight: bold;">List Mesin</h5>
-      </a>
-      <h5 class="m-0 p-0">
-        &nbsp;/&nbsp;
-      </h5>
-      <a>
-        <h5 class="m-0 p-0" style="font-weight: bold;">Form Mesin</h5>
-      </a>
+    <a (click)="openPage('list-mesin')">
+      <h5 class="m-0 p-0" style="font-weight: bold;">Mesin</h5>
+    </a>
+    <h5 class="m-0 p-0">
+      &nbsp;/&nbsp;
+    </h5>
+    <a (click)="openPage('list-mesin')">
+      <h5 class="m-0 p-0" style="font-weight: bold;">List Mesin</h5>
+    </a>
+    <h5 class="m-0 p-0">
+      &nbsp;/&nbsp;
+    </h5>
+    <a>
+      <h5 class="m-0 p-0" style="font-weight: bold;">Form Mesin</h5>
+    </a>
 </div>
 <div class="p-2 container" class="boxContentChild">
-    <div class="form">
-        <div class="formHeader" >
-            <h5 class="m-0 p-0" style="font-weight: bold;">
-                Master Data Code WIP
-            </h5>
-        </div>
-        <div class="boxInput" >
-            <form [formGroup]="reactiveForm">
-                <div class="boxInputCol d-flex w-100" style="flex-wrap: wrap;">
-                    <div class="label row align-items-center">
-                        <label for="inputKodeWIP" class="form-label col-10 p-0 m-0">
-                            <h5 class="m-0 p-0">
-                                Kode WIP
-                            </h5>
-                        </label>
-                        <div class="titikDua col-2">
-                            <h5 class="m-0 p-0">
-                                :
-                            </h5>
-                        </div>
+  <div class="form">
+      <div class="formHeader" >
+          <h5 class="m-0 p-0" style="font-weight: bold;">
+              Master Data Mesin
+          </h5>
+      </div>
+      <div class="boxInput" >
+          <form [formGroup]="reactiveForm">
+              <div class="boxInputCol d-flex w-100" style="flex-wrap: wrap;">
+                  <div class="label row align-items-center">
+                      <label for="inputNoMesin" class="form-label col-10 p-0 m-0">
+                          <h5 class="m-0 p-0">
+                              No Mesin
+                          </h5>
+                      </label>
+                      <div class="titikDua col-2">
+                          <h5 class="m-0 p-0">
+                              :
+                          </h5>
+                      </div>
+                  </div>
+                  <div class="inputCol">
+                      <input formControlName="noMesin" type="text" class="form-control" name="inputNoMesin" id="inputNoMesin">
+                      <div *ngIf="!validFormStatus[0].status" id="emailHelp" class="text-danger form-text">
+                          <h5>
+                              Kolom ini wajib diisi!!
+                          </h5>
+                      </div>
+                      <div *ngIf="action.name === 'add'">
+                          <div *ngIf="noMesinAlreadyExist" id="emailHelp" class="text-danger form-text">
+                              <h5>
+                                  No Mesin {{ this.reactiveForm.get("noMesin")?.value }} telah digunakan. Silahkan ganti No Mesin!!
+                              </h5>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="boxInputCol d-flex w-100" style="flex-wrap: wrap;">
+                  <div class="label row align-items-center">
+                      <label for="inputLokasiMesin" class="form-label col-10 p-0 m-0">
+                          <h5 class="m-0 p-0">
+                              Lokasi Mesin
+                          </h5>
+                      </label>
+                      <div class="titikDua col-2">
+                          <h5 class="m-0 p-0">
+                              :
+                          </h5>
+                      </div>
+                  </div>
+                  <div class="inputCol">
+                      <input formControlName="lokasiMesin" type="text" class="form-control" name="inputLokasiMesin" id="inputLokasiMesin">
+                      <div *ngIf="!validFormStatus[1].status" id="emailHelp" class="text-danger form-text">
+                          <h5>
+                              Kolom ini wajib diisi!!
+                          </h5>
+                  </div>
+                  </div>
+              </div>
+              <div class="boxInputCol d-flex w-100" style="flex-wrap: wrap;">
+                  <div class="label row align-items-center">
+                      <label for="inputKodeGrupMesin" class="form-label col-10 p-0 m-0">
+                          <h5 class="m-0 p-0">
+                              Kode Grup Mesin
+                          </h5>
+                      </label>
+                      <div class="titikDua col-2">
+                          <h5 class="m-0 p-0">
+                              :
+                          </h5>
+                      </div>
+                  </div>
+                  <div class="inputCol">
+                      <select formControlName="kodeGrupMesin" id="inputKodeGrupMesin" name="inputKodeGrupMesin" class="form-select">
+                          <option value="1">
+                              <h5>
+                                  One
+                              </h5>
+                          </option>
+                          <option value="2">
+                              <h5>
+                                  Two
+                              </h5>
+                          </option>
+                          <option value="3">
+                              <h5>
+                                  Three
+                              </h5>
+                          </option>
+                      </select>
+                  </div>
+              </div>
+              <div class="boxInputCol d-flex w-100" style="flex-wrap: wrap;">
+                  <div class="label row align-items-center">
+                      <label for="inputIdProses" class="form-label col-10 p-0 m-0">
+                          <h5 class="m-0 p-0">
+                              ID Proses
+                          </h5>
+                      </label>
+                      <div class="titikDua col-2">
+                          <h5 class="m-0 p-0">
+                              :
+                          </h5>
+                      </div>
+                  </div>
+                  <div class="inputCol">
+                      <select formControlName="idProses" id="inputIdProses" name="inputIdProses" class="form-select">
+                          <option value="1">
+                              <h5>
+                                  One
+                              </h5>
+                          </option>
+                          <option value="2">
+                              <h5>
+                                  Two
+                              </h5>
+                          </option>
+                          <option value="3">
+                              <h5>
+                                  Three
+                              </h5>
+                          </option>
+                      </select>
+                  </div>
+              </div>
+              <div class="boxInputCol d-flex w-100" style="flex-wrap: wrap;">
+                  <div class="label row align-items-center">
+                      <label for="inputProses" class="form-label col-10 p-0 m-0">
+                          <h5 class="m-0 p-0">
+                              Proses
+                          </h5>
+                      </label>
+                      <div class="titikDua col-2">
+                          <h5 class="m-0 p-0">
+                              :
+                          </h5>
+                      </div>
+                  </div>
+                  <div class="inputCol">
+                      <input formControlName="proses" type="text" class="form-control" name="inputProses" id="inputProses">
+                      <div *ngIf="!validFormStatus[4].status" id="emailHelp" class="text-danger form-text">
+                          <h5>
+                              Kolom ini wajib diisi!!
+                          </h5>
+                  </div>
+                  </div>
+              </div>
+              <div class="boxInputCol d-flex w-100" style="flex-wrap: wrap;">
+                  <div class="label row align-items-center">
+                      <label for="inputGedung" class="form-label col-10 p-0 m-0">
+                          <h5 class="m-0 p-0">
+                              Gedung
+                          </h5>
+                      </label>
+                      <div class="titikDua col-2">
+                          <h5 class="m-0 p-0">
+                              :
+                          </h5>
+                      </div>
+                  </div>
+                  <div class="inputCol">
+                      <select formControlName="gedung" id="inputGedung" name="inputGedung" class="form-select">
+                          <option value="1">
+                              <h5>
+                                  One
+                              </h5>
+                          </option>
+                          <option value="2">
+                              <h5>
+                                  Two
+                              </h5>
+                          </option>
+                          <option value="3">
+                              <h5>
+                                  Three
+                              </h5>
+                          </option>
+                      </select>
+                  </div>
+              </div>
+              <div class="boxInputCol d-flex w-100" style="flex-wrap: wrap;">
+                  <div class="label row align-items-center">
+                      <label for="inputStatus" class="form-label col-10 p-0 m-0">
+                          <h5 class="m-0 p-0">
+                              Status
+                          </h5>
+                      </label>
+                      <div class="titikDua col-2">
+                          <h5 class="m-0 p-0">
+                              :
+                          </h5>
+                      </div>
+                  </div>
+                  <div class="inputCol">
+                      <select formControlName="status" id="inputStatus" name="inputStatus" class="form-select">
+                          <option value="Yes">
+                              <h5>
+                                  Yes
+                              </h5>
+                          </option>
+                          <option value="No">
+                              <h5>
+                                  No
+                              </h5>
+                          </option>
+                      </select>
+                  </div>
+              </div>
+              <br>
+              <div class="d-flex justify-content-between">
+                  <button (click)="openPage('list-mesin')" type="button" class="btn btn-pill btn-secondary float-left rounded-4"><i class="fa fa-backward"> </i>
+                      <h5 class="m-0 p-0" style="font-weight: bold;">Back</h5>
+                  </button>
+                  <div class="d-flex">
+                    <div *ngIf="action.name=='edit'" class="me-2">
+                        <button *ngIf="formIsEdited; else cancelEdit" type="button" class="btn btn-pill btn-primary float-right rounded-4" style="color: black;" ><i class="fa fa-save"> </i><strong>
+                            <h5 class="m-0 p-0" style="font-weight: bold; width: max-content;" (click)="setFormStatus()">Disable Form</h5>
+                        </strong></button>
+                        <ng-template #cancelEdit>
+                            <button type="button" class="btn btn-pill btn-primary float-right rounded-4" style="color: black;" ><i class="fa fa-save"> </i><strong>
+                                <h5 class="m-0 p-0" style="font-weight: bold; width: max-content;" (click)="setFormStatus()">Enable Form</h5>
+                            </strong></button>
+                        </ng-template>
                     </div>
-                    <div class="inputCol">
-                        <input formControlName="kodeWIP" type="text" class="form-control" name="inputKodeWIP" id="inputKodeWIP">
-                        <div *ngIf="!validFormStatus[0].status" id="emailHelp" class="text-danger form-text">
-                            <h5>
-                                Kolom ini wajib diisi!!
-                            </h5>
-                        </div>
-                        <div *ngIf="kodeWipAlreadyExist" id="emailHelp" class="text-danger form-text">
-                            <h5>
-                                Kode WIP {{ this.reactiveForm.get("kodeWIP")?.value }} telah digunakan. Silahkan ganti Kode WIP!!
-                            </h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="boxInputCol d-flex w-100" style="flex-wrap: wrap;">
-                    <div class="label row align-items-center">
-                        <label for="inputDesc" class="form-label col-10 p-0 m-0">
-                            <h5 class="m-0 p-0">
-                                Deskripsi
-                            </h5>
-                        </label>
-                        <div class="titikDua col-2">
-                            <h5 class="m-0 p-0">
-                                :
-                            </h5>
-                        </div>
-                    </div>
-                    <div class="inputCol">
-                        <textarea formControlName="deskripsi" name="inputDesc" class="form-control" name="inputDesc" id="inputDesc" cols="30" style="width: 100%;"></textarea>
-                        <div *ngIf="!validFormStatus[1].status" id="emailHelp" class="text-danger form-text">
-                            <h5>
-                                Kolom ini wajib diisi!!
-                            </h5>
-                    </div>
-                    </div>
-                </div>
-                <div class="boxInputCol d-flex w-100" style="flex-wrap: wrap;">
-                    <div class="label row align-items-center">
-                        <label for="inputUomWip" class="form-label col-10 p-0 m-0">
-                            <h5 class="m-0 p-0">
-                                UOM WIP
-                            </h5>
-                        </label>
-                        <div class="titikDua col-2">
-                            <h5 class="m-0 p-0">
-                                :
-                            </h5>
-                        </div>
-                    </div>
-                    <div class="inputCol">
-                        <input formControlName="uomWIP" type="text" class="form-control" name="inputUomWip" id="inputUomWip">
-                        <div *ngIf="!validFormStatus[2].status" id="emailHelp" class="text-danger form-text">
-                            <h5>
-                                Kolom ini wajib diisi!!
-                            </h5>
-                    </div>
-                    </div>
-                </div>
-                <div class="boxInputCol d-flex w-100" style="flex-wrap: wrap;">
-                    <div class="label row align-items-center">
-                        <label for="inputIdProses" class="form-label col-10 p-0 m-0">
-                            <h5 class="m-0 p-0">
-                                ID Proses
-                            </h5>
-                        </label>
-                        <div class="titikDua col-2">
-                            <h5 class="m-0 p-0">
-                                :
-                            </h5>
-                        </div>
-                    </div>
-                    <div class="inputCol">
-                        <select formControlName="idProses" id="inputIdProses" name="inputIdProses" class="form-select">
-                            <option value="1">
-                                <h5>
-                                    One
-                                </h5>
-                            </option>
-                            <option value="2">
-                                <h5>
-                                    Two
-                                </h5>
-                            </option>
-                            <option value="3">
-                                <h5>
-                                    Three
-                                </h5>
-                            </option>
-                        </select>
-                    </div>
-                </div>
-                <div class="boxInputCol d-flex w-100" style="flex-wrap: wrap;">
-                    <div class="label row align-items-center">
-                        <label for="inputStatus" class="form-label col-10 p-0 m-0">
-                            <h5 class="m-0 p-0">
-                                Status
-                            </h5>
-                        </label>
-                        <div class="titikDua col-2">
-                            <h5 class="m-0 p-0">
-                                :
-                            </h5>
-                        </div>
-                    </div>
-                    <div class="inputCol">
-                        <select formControlName="status" id="inputStatus" name="inputStatus" class="form-select">
-                            <option value="Yes">
-                                <h5>
-                                    Yes
-                                </h5>
-                            </option>
-                            <option value="No">
-                                <h5>
-                                    No
-                                </h5>
-                            </option>
-                        </select>
-                    </div>
-                </div>
-                <br>
-                <div class="d-flex justify-content-between">
-                    <button (click)="openPage('list-mesin')" type="button" class="btn btn-pill btn-secondary float-left rounded-4"><i class="fa fa-backward"> </i>
-                        <h5 class="m-0 p-0" style="font-weight: bold;">Back</h5>
-                    </button>
                     <button [disabled]="btnSaveDisable" type="button" class="btn btn-pill btn-success float-right rounded-4" style="color: black;" ><i class="fa fa-save"> </i><strong>
-                        <h5 class="m-0 p-0" style="font-weight: bold;" (click)="saveData()">Save</h5>
+                          <h5 class="m-0 p-0" style="font-weight: bold;" (click)="saveData()">Save</h5>
                     </strong></button>
-                </div>
-            </form>
-        </div>
-    </div>
+                  </div>
+              </div>
+          </form>
+      </div>
+  </div>
 </div>

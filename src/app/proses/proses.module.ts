@@ -1,26 +1,26 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ListGedungComponent } from './components/list-gedung/list-gedung.component';
+import { ListProsesComponent } from './components/list-proses/list-proses.component';
+import { FormProsesComponent } from './components/form-proses/form-proses.component';
 import { RouterModule, Routes } from '@angular/router';
-import { FormGedungComponent } from './components/form-gedung/form-gedung.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
   
   {
-    path: "form-gedung",
-    component : FormGedungComponent
+    path: "form-proses",
+    component : FormProsesComponent
   },
   {
-    path: "list-gedung",
-    component : ListGedungComponent
+    path: "list-proses",
+    component : ListProsesComponent
   },
 ];
 
 @NgModule({
   declarations: [
-    ListGedungComponent,
-    FormGedungComponent
+    ListProsesComponent,
+    FormProsesComponent
   ],
   imports: [
     CommonModule,
@@ -28,4 +28,4 @@ const routes: Routes = [
     ReactiveFormsModule
   ]
 })
-export class GedungModule { }
+export class ProsesModule { }

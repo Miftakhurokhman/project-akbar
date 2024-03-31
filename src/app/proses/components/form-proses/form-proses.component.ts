@@ -3,11 +3,11 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-form-kode-wip',
-  templateUrl: './form-kode-wip.component.html',
-  styleUrl: './form-kode-wip.component.css'
+  selector: 'app-form-proses',
+  templateUrl: './form-proses.component.html',
+  styleUrl: './form-proses.component.css'
 })
-export class FormKodeWipComponent implements OnInit {
+export class FormProsesComponent implements OnInit {
 
   constructor(private router:Router, private activatedRoute: ActivatedRoute, private fb: FormBuilder) {}
 
@@ -24,27 +24,17 @@ export class FormKodeWipComponent implements OnInit {
   ]
 
   formIsEdited = true
-  kodeWipAlreadyExist : boolean = false;
+  idProsesAlreadyExist : boolean = false;
 
   validFormStatus = [
     {
       status : true,
-      colName : "kodeWIP",
-      disableCol : true,
-    },
-    {
-      status : true,
-      colName : "deskripsi",
-      disableCol : true,
-    },
-    {
-      status : true,
-      colName : "uomWIP",
-      disableCol : true,
-    },
-    {
-      status : true,
       colName : "idProses",
+      disableCol : true,
+    },
+    {
+      status : true,
+      colName : "proses",
       disableCol : true,
     },
     {
@@ -55,18 +45,14 @@ export class FormKodeWipComponent implements OnInit {
   ]
 
   dummyEditValue = {
-    kodeWIP : "TES",
-    deskripsi : "deskripsi tes",
-    uomWIP : "KODE TES",
     idProses : "1",
+    proses : "KODE TES",
     status : "Yes"
   }
 
   reactiveForm = this.fb.group({
-    kodeWIP: [{ value: '', disabled: true }, Validators.required],
-    deskripsi: [{ value: '', disabled: true}, Validators.required],
-    uomWIP: [{ value: '', disabled: true}, Validators.required],
     idProses: [{ value: '', disabled: true}, Validators.required],
+    proses: [{ value: '', disabled: true}, Validators.required],
     status: [{ value: '', disabled: true}, Validators.required]
   });
 
@@ -94,16 +80,13 @@ export class FormKodeWipComponent implements OnInit {
       })
 
       // UPPERCASE KODE WIP
-      this.uppercaseValue("kodeWIP");
-      this.uppercaseValue('uomWIP')
+      this.uppercaseValue("idProses");
 
 
       // CHECK VALIDASI PER KOLOM
-      this.reactiveForm.get("kodeWIP")?.valueChanges.subscribe(() => {this.checkValidation(0)});
-      this.reactiveForm.get("deskripsi")?.valueChanges.subscribe(() => {this.checkValidation(1)});
-      this.reactiveForm.get("uomWIP")?.valueChanges.subscribe(() => {this.checkValidation(2)});
-      this.reactiveForm.get("idProses")?.valueChanges.subscribe(() => {this.checkValidation(3)});
-      this.reactiveForm.get("status")?.valueChanges.subscribe(() => {this.checkValidation(4)});
+      this.reactiveForm.get("idProses")?.valueChanges.subscribe(() => {this.checkValidation(0)});
+      this.reactiveForm.get("proses")?.valueChanges.subscribe(() => {this.checkValidation(1)});
+      this.reactiveForm.get("status")?.valueChanges.subscribe(() => {this.checkValidation(2)});
       
   }
 
@@ -118,27 +101,23 @@ export class FormKodeWipComponent implements OnInit {
     } else {
       this.btnSaveDisable = true;
     }
-    if (this.formIsEdited) {
-      this.reactiveForm.get('deskripsi')?.enable();      
-      this.reactiveForm.get('uomWIP')?.enable();      
+    if (this.formIsEdited) {      
+      this.reactiveForm.get('proses')?.enable();      
       this.reactiveForm.get('status')?.enable();      
-      this.reactiveForm.get('idProses')?.enable();
-    } else {
-      this.reactiveForm.get('deskripsi')?.disable();      
-      this.reactiveForm.get('uomWIP')?.disable();      
-      this.reactiveForm.get('status')?.disable();      
-      this.reactiveForm.get('idProses')?.disable();
+    } else {      
+      this.reactiveForm.get('proses')?.disable();      
+      this.reactiveForm.get('status')?.disable();   
     }
     
   }
 
   // CHECKING APAKAH ID TELAH DIGUNAKAN
   checkKodeWIP (): boolean {
-    if (this.dummyListID.find((id) => id === this.reactiveForm.get("kodeWIP")?.value?.toUpperCase() )) {
-      this.kodeWipAlreadyExist = true;
+    if (this.dummyListID.find((id) => id === this.reactiveForm.get("idProses")?.value?.toUpperCase() )) {
+      this.idProsesAlreadyExist = true;
       return true
     } else {
-      this.kodeWipAlreadyExist = false;
+      this.idProsesAlreadyExist = false;
       return false
     }
   }
@@ -162,8 +141,8 @@ export class FormKodeWipComponent implements OnInit {
   }
 
   openPage(pageName : string) {
-    if (pageName ==="list-kode-wip") {
-      this.router.navigate(['/master-data', 'kode-wip', 'list-kode-wip'])
+    if (pageName ==="list-proses") {
+      this.router.navigate(['/master-data', 'proses', 'list-proses'])
     }
   }
 

@@ -1,0 +1,961 @@
+<div id="pageTitle" class="p-2">
+    <a (click)="openPage('list-spec-parameter')">
+      <h5 class="m-0 p-0" style="font-weight: bold;">Spec Parameter</h5>
+    </a>
+    <h5 class="m-0 p-0">
+      &nbsp;/&nbsp;
+    </h5>
+    <a (click)="openPage('list-spec-parameter')">
+      <h5 class="m-0 p-0" style="font-weight: bold;">List Spec Parameter</h5>
+    </a>
+    <h5 class="m-0 p-0">
+      &nbsp;/&nbsp;
+    </h5>
+    <a>
+      <h5 class="m-0 p-0" style="font-weight: bold;">Form Spec Parameter</h5>
+    </a>
+</div>
+<div class="p-2 container" class="boxContentChild">
+  <div class="form">
+      <div class="formHeader" >
+          <h5 class="m-0 p-0" style="font-weight: bold;">
+              Master Data Code WIP
+          </h5>
+      </div>
+      <div class="boxInput" >
+          <form [formGroup]="reactiveForm">
+            <div class="row justify-content-between">
+
+
+
+                <div class="col-12 col-lg-3">
+                    <div class="boxInputCol d-flex w-100" style="flex-wrap: wrap;">
+                        <div class="label row align-items-center">
+                            <label for="inputKodeWIP" class="form-label col-10 p-0 m-0">
+                                <h5 class="m-0 p-0">
+                                    Kode WIP
+                                </h5>
+                            </label>
+                            <div class="titikDua col-2">
+                                <h5 class="m-0 p-0">
+                                    :
+                                </h5>
+                            </div>
+                        </div>
+                        <div class="inputCol">
+                            <select formControlName="kodeWIP" id="inputKodeWIP" name="inputKodeWIP" class="form-select">
+                                <option value="1">
+                                    <h5>
+                                        One
+                                    </h5>
+                                </option>
+                                <option value="2">
+                                    <h5>
+                                        Two
+                                    </h5>
+                                </option>
+                                <option value="3">
+                                    <h5>
+                                        Three
+                                    </h5>
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="boxInputCol d-flex w-100" style="flex-wrap: wrap;">
+                        <div class="label row align-items-center">
+                            <label for="inputKodeGrupMesin" class="form-label col-10 p-0 m-0">
+                                <h5 class="m-0 p-0">
+                                    Kode Grup Mesin
+                                </h5>
+                            </label>
+                            <div class="titikDua col-2">
+                                <h5 class="m-0 p-0">
+                                    :
+                                </h5>
+                            </div>
+                        </div>
+                        <div class="inputCol">
+                            <select formControlName="kodeGrupMesin" id="inputKodeGrupMesin" name="inputKodeGrupMesin" class="form-select">
+                                <option value="1">
+                                    <h5>
+                                        One
+                                    </h5>
+                                </option>
+                                <option value="2">
+                                    <h5>
+                                        Two
+                                    </h5>
+                                </option>
+                                <option value="3">
+                                    <h5>
+                                        Three
+                                    </h5>
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="boxInputCol d-flex w-100" style="flex-wrap: wrap;">
+                        <div class="label row align-items-center">
+                            <label for="inputGrupMesin" class="form-label col-10 p-0 m-0">
+                                <h5 class="m-0 p-0">
+                                    Grup Mesin
+                                </h5>
+                            </label>
+                            <div class="titikDua col-2">
+                                <h5 class="m-0 p-0">
+                                    :
+                                </h5>
+                            </div>
+                        </div>
+                        <div class="inputCol">
+                            <input formControlName="grupMesin" type="text" class="form-control" name="inputGrupMesin" id="inputGrupMesin">
+                            <div *ngIf="!validFormStatus[2].status" id="emailHelp" class="text-danger form-text">
+                                <h5>
+                                    Kolom ini wajib diisi!!
+                                </h5>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="boxInputCol d-flex w-100" style="flex-wrap: wrap;">
+                        <div class="label row align-items-center">
+                            <label for="inputIdProses" class="form-label col-10 p-0 m-0">
+                                <h5 class="m-0 p-0">
+                                    Id Proses
+                                </h5>
+                            </label>
+                            <div class="titikDua col-2">
+                                <h5 class="m-0 p-0">
+                                    :
+                                </h5>
+                            </div>
+                        </div>
+                        <div class="inputCol">
+                            <select formControlName="idProses" id="inputIdProses" name="inputIdProses" class="form-select">
+                                <option value="1">
+                                    <h5>
+                                        One
+                                    </h5>
+                                </option>
+                                <option value="2">
+                                    <h5>
+                                        Two
+                                    </h5>
+                                </option>
+                                <option value="3">
+                                    <h5>
+                                        Three
+                                    </h5>
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="boxInputCol d-flex w-100" style="flex-wrap: wrap;">
+                        <div class="label row align-items-center">
+                            <label for="inputRevisi" class="form-label col-10 p-0 m-0">
+                                <h5 class="m-0 p-0">
+                                    Revisi
+                                </h5>
+                            </label>
+                            <div class="titikDua col-2">
+                                <h5 class="m-0 p-0">
+                                    :
+                                </h5>
+                            </div>
+                        </div>
+                        <div class="inputCol">
+                            <input formControlName="revisi" type="text" class="form-control" name="inputRevisi" id="inputRevisi">
+                            <div *ngIf="!validFormStatus[4].status" id="emailHelp" class="text-danger form-text">
+                                <h5>
+                                    Kolom ini wajib diisi!!
+                                </h5>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="boxInputCol d-flex w-100" style="flex-wrap: wrap;">
+                        <div class="label row align-items-center">
+                            <label for="inputBeginDate" class="form-label col-10 p-0 m-0">
+                                <h5 class="m-0 p-0">
+                                    Begin Date
+                                </h5>
+                            </label>
+                            <div class="titikDua col-2">
+                                <h5 class="m-0 p-0">
+                                    :
+                                </h5>
+                            </div>
+                        </div>
+                        <div class="inputCol">
+                            <input formControlName="beginDate" type="date" class="form-control" name="inputBeginDate" id="inputBeginDate">
+                        </div>
+                    </div>
+                    <div class="boxInputCol d-flex w-100" style="flex-wrap: wrap;">
+                        <div class="label row align-items-center">
+                            <label for="inputEndDate" class="form-label col-10 p-0 m-0">
+                                <h5 class="m-0 p-0">
+                                    End Date
+                                </h5>
+                            </label>
+                            <div class="titikDua col-2">
+                                <h5 class="m-0 p-0">
+                                    :
+                                </h5>
+                            </div>
+                        </div>
+                        <div class="inputCol">
+                            <input formControlName="endDate" type="date" class="form-control" name="inputEndDate" id="inputEndDate">
+                        </div>
+                    </div>
+                    <div class="boxInputCol d-flex w-100" style="flex-wrap: wrap;">
+                        <div class="label row align-items-center">
+                            <label for="inputStatus" class="form-label col-10 p-0 m-0">
+                                <h5 class="m-0 p-0">
+                                    Status
+                                </h5>
+                            </label>
+                            <div class="titikDua col-2">
+                                <h5 class="m-0 p-0">
+                                    :
+                                </h5>
+                            </div>
+                        </div>
+                        <div class="inputCol">
+                            <select formControlName="status" id="inputStatus" name="inputStatus" class="form-select">
+                                <option value="Yes">
+                                    <h5>
+                                        Yes
+                                    </h5>
+                                </option>
+                                <option value="No">
+                                    <h5>
+                                        No
+                                    </h5>
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="boxInputCol d-flex w-100" style="flex-wrap: wrap;">
+                        <div class="label row align-items-center">
+                            <label for="inputWithFormer" class="form-label col-10 p-0 m-0">
+                                <h5 class="m-0 p-0">
+                                    With Former
+                                </h5>
+                            </label>
+                            <div class="titikDua col-2">
+                                <h5 class="m-0 p-0">
+                                    :
+                                </h5>
+                            </div>
+                        </div>
+                        <div class="inputCol">
+                            <input formControlName="withFormer" type="text" class="form-control" name="inputWithFormer" id="inputWithFormer">
+                            <div *ngIf="!validFormStatus[8].status" id="emailHelp" class="text-danger form-text">
+                                <h5>
+                                    Kolom ini wajib diisi!!
+                                </h5>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="boxInputCol d-flex w-100" style="flex-wrap: wrap;">
+                        <div class="label row align-items-center">
+                            <label for="inputTotalWidthFormer" class="form-label col-10 p-0 m-0">
+                                <h5 class="m-0 p-0">
+                                    Total Width Former
+                                </h5>
+                            </label>
+                            <div class="titikDua col-2">
+                                <h5 class="m-0 p-0">
+                                    :
+                                </h5>
+                            </div>
+                        </div>
+                        <div class="inputCol">
+                            <input formControlName="totalWithFormer" type="text" class="form-control" name="inputTotalWidthFormer" id="inputTotalWidthFormer">
+                            <div *ngIf="!validFormStatus[9].status" id="emailHelp" class="text-danger form-text">
+                                <h5>
+                                    Kolom ini wajib diisi!!
+                                </h5>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ////////////////////////////////  -->
+
+                <div class="col-12 col-lg-3">
+                    <div class="boxInputCol d-flex w-100" style="flex-wrap: wrap;">
+                        <div class="label row align-items-center">
+                            <label for="inputUomWidthFormer" class="form-label col-10 p-0 m-0">
+                                <h5 class="m-0 p-0">
+                                    UOM Width Former
+                                </h5>
+                            </label>
+                            <div class="titikDua col-2">
+                                <h5 class="m-0 p-0">
+                                    :
+                                </h5>
+                            </div>
+                        </div>
+                        <div class="inputCol">
+                            <input formControlName="uomWidthFormer" type="text" class="form-control" name="inputUomWidthFormer" id="inputUomWidthFormer">
+                            <div *ngIf="!validFormStatus[10].status" id="emailHelp" class="text-danger form-text">
+                                <h5>
+                                    Kolom ini wajib diisi!!
+                                </h5>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="boxInputCol d-flex w-100" style="flex-wrap: wrap;">
+                        <div class="label row align-items-center">
+                            <label for="inputDefiate" class="form-label col-10 p-0 m-0">
+                                <h5 class="m-0 p-0">
+                                    Defiate
+                                </h5>
+                            </label>
+                            <div class="titikDua col-2">
+                                <h5 class="m-0 p-0">
+                                    :
+                                </h5>
+                            </div>
+                        </div>
+                        <div class="inputCol">
+                            <input formControlName="defiate" type="text" class="form-control" name="inputDefiate" id="inputDefiate">
+                            <div *ngIf="!validFormStatus[11].status" id="emailHelp" class="text-danger form-text">
+                                <h5>
+                                    Kolom ini wajib diisi!!
+                                </h5>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="boxInputCol d-flex w-100" style="flex-wrap: wrap;">
+                        <div class="label row align-items-center">
+                            <label for="inputTolDefiate" class="form-label col-10 p-0 m-0">
+                                <h5 class="m-0 p-0">
+                                    Tol Defiate
+                                </h5>
+                            </label>
+                            <div class="titikDua col-2">
+                                <h5 class="m-0 p-0">
+                                    :
+                                </h5>
+                            </div>
+                        </div>
+                        <div class="inputCol">
+                            <input formControlName="tolDefiate" type="text" class="form-control" name="inputTolDefiate" id="inputTolDefiate">
+                            <div *ngIf="!validFormStatus[12].status" id="emailHelp" class="text-danger form-text">
+                                <h5>
+                                    Kolom ini wajib diisi!!
+                                </h5>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="boxInputCol d-flex w-100" style="flex-wrap: wrap;">
+                        <div class="label row align-items-center">
+                            <label for="inputUomDefiate" class="form-label col-10 p-0 m-0">
+                                <h5 class="m-0 p-0">
+                                    UOM Defiate
+                                </h5>
+                            </label>
+                            <div class="titikDua col-2">
+                                <h5 class="m-0 p-0">
+                                    :
+                                </h5>
+                            </div>
+                        </div>
+                        <div class="inputCol">
+                            <input formControlName="uomDefiate" type="text" class="form-control" name="inputUomDefiate" id="inputUomDefiate">
+                            <div *ngIf="!validFormStatus[13].status" id="emailHelp" class="text-danger form-text">
+                                <h5>
+                                    Kolom ini wajib diisi!!
+                                </h5>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="boxInputCol d-flex w-100" style="flex-wrap: wrap;">
+                        <div class="label row align-items-center">
+                            <label for="inputInfiate" class="form-label col-10 p-0 m-0">
+                                <h5 class="m-0 p-0">
+                                    Infiate
+                                </h5>
+                            </label>
+                            <div class="titikDua col-2">
+                                <h5 class="m-0 p-0">
+                                    :
+                                </h5>
+                            </div>
+                        </div>
+                        <div class="inputCol">
+                            <input formControlName="infiate" type="text" class="form-control" name="inputInfiate" id="inputInfiate">
+                            <div *ngIf="!validFormStatus[14].status" id="emailHelp" class="text-danger form-text">
+                                <h5>
+                                    Kolom ini wajib diisi!!
+                                </h5>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="boxInputCol d-flex w-100" style="flex-wrap: wrap;">
+                        <div class="label row align-items-center">
+                            <label for="inputTolInfiate" class="form-label col-10 p-0 m-0">
+                                <h5 class="m-0 p-0">
+                                    Tol Infiate
+                                </h5>
+                            </label>
+                            <div class="titikDua col-2">
+                                <h5 class="m-0 p-0">
+                                    :
+                                </h5>
+                            </div>
+                        </div>
+                        <div class="inputCol">
+                            <input formControlName="tolInfiate" type="text" class="form-control" name="inputTolInfiate" id="inputTolInfiate">
+                            <div *ngIf="!validFormStatus[15].status" id="emailHelp" class="text-danger form-text">
+                                <h5>
+                                    Kolom ini wajib diisi!!
+                                </h5>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="boxInputCol d-flex w-100" style="flex-wrap: wrap;">
+                        <div class="label row align-items-center">
+                            <label for="inputUomInfiate" class="form-label col-10 p-0 m-0">
+                                <h5 class="m-0 p-0">
+                                    UOM Infiate
+                                </h5>
+                            </label>
+                            <div class="titikDua col-2">
+                                <h5 class="m-0 p-0">
+                                    :
+                                </h5>
+                            </div>
+                        </div>
+                        <div class="inputCol">
+                            <input formControlName="uomInfiate" type="text" class="form-control" name="inputUomInfiate" id="inputUomInfiate">
+                            <div *ngIf="!validFormStatus[16].status" id="emailHelp" class="text-danger form-text">
+                                <h5>
+                                    Kolom ini wajib diisi!!
+                                </h5>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="boxInputCol d-flex w-100" style="flex-wrap: wrap;">
+                        <div class="label row align-items-center">
+                            <label for="inputBeadRing" class="form-label col-10 p-0 m-0">
+                                <h5 class="m-0 p-0">
+                                    Bead Ring
+                                </h5>
+                            </label>
+                            <div class="titikDua col-2">
+                                <h5 class="m-0 p-0">
+                                    :
+                                </h5>
+                            </div>
+                        </div>
+                        <div class="inputCol">
+                            <input formControlName="beadRing" type="text" class="form-control" name="inputBeadRing" id="inputBeadRing">
+                            <div *ngIf="!validFormStatus[17].status" id="emailHelp" class="text-danger form-text">
+                                <h5>
+                                    Kolom ini wajib diisi!!
+                                </h5>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="boxInputCol d-flex w-100" style="flex-wrap: wrap;">
+                        <div class="label row align-items-center">
+                            <label for="inputTolBeadRing" class="form-label col-10 p-0 m-0">
+                                <h5 class="m-0 p-0">
+                                    Tol Bead Ring
+                                </h5>
+                            </label>
+                            <div class="titikDua col-2">
+                                <h5 class="m-0 p-0">
+                                    :
+                                </h5>
+                            </div>
+                        </div>
+                        <div class="inputCol">
+                            <input formControlName="tolBeadRing" type="text" class="form-control" name="inputTolBeadRing" id="inputTolBeadRing">
+                            <div *ngIf="!validFormStatus[18].status" id="emailHelp" class="text-danger form-text">
+                                <h5>
+                                    Kolom ini wajib diisi!!
+                                </h5>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="boxInputCol d-flex w-100" style="flex-wrap: wrap;">
+                        <div class="label row align-items-center">
+                            <label for="inputUomBeadRing" class="form-label col-10 p-0 m-0">
+                                <h5 class="m-0 p-0">
+                                    UOM Bead Ring
+                                </h5>
+                            </label>
+                            <div class="titikDua col-2">
+                                <h5 class="m-0 p-0">
+                                    :
+                                </h5>
+                            </div>
+                        </div>
+                        <div class="inputCol">
+                            <input formControlName="uomBeadRing" type="text" class="form-control" name="inputUomBeadRing" id="inputUomBeadRing">
+                            <div *ngIf="!validFormStatus[19].status" id="emailHelp" class="text-danger form-text">
+                                <h5>
+                                    Kolom ini wajib diisi!!
+                                </h5>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ////////////////////////////////  -->
+
+                <div class="col-12 col-lg-3">
+                    <div class="boxInputCol d-flex w-100" style="flex-wrap: wrap;">
+                        <div class="label row align-items-center">
+                            <label for="inputJarakUsrStopHump" class="form-label col-10 p-0 m-0">
+                                <h5 class="m-0 p-0">
+                                    Jarak USR Stop Hump
+                                </h5>
+                            </label>
+                            <div class="titikDua col-2">
+                                <h5 class="m-0 p-0">
+                                    :
+                                </h5>
+                            </div>
+                        </div>
+                        <div class="inputCol">
+                            <input formControlName="jarakUsrStopHump" type="number" class="form-control" name="inputJarakUsrStopHump" id="inputJarakUsrStopHump">
+                            <div *ngIf="!validFormStatus[20].status" id="emailHelp" class="text-danger form-text">
+                                <h5>
+                                    Kolom ini wajib diisi!!
+                                </h5>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="boxInputCol d-flex w-100" style="flex-wrap: wrap;">
+                        <div class="label row align-items-center">
+                            <label for="inputJarakTotalUsrStopHump" class="form-label col-10 p-0 m-0">
+                                <h5 class="m-0 p-0">
+                                    Total Jarak USR Stop Hump
+                                </h5>
+                            </label>
+                            <div class="titikDua col-2">
+                                <h5 class="m-0 p-0">
+                                    :
+                                </h5>
+                            </div>
+                        </div>
+                        <div class="inputCol">
+                            <input formControlName="totalJarakUsrStopHump" type="number" class="form-control" name="inputJarakTotalUsrStopHump" id="inputJarakTotalUsrStopHump">
+                            <div *ngIf="!validFormStatus[21].status" id="emailHelp" class="text-danger form-text">
+                                <h5>
+                                    Kolom ini wajib diisi!!
+                                </h5>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="boxInputCol d-flex w-100" style="flex-wrap: wrap;">
+                        <div class="label row align-items-center">
+                            <label for="inputUomJarakUsrStopHump" class="form-label col-10 p-0 m-0">
+                                <h5 class="m-0 p-0">
+                                    UOM Jarak USR Stop Hump
+                                </h5>
+                            </label>
+                            <div class="titikDua col-2">
+                                <h5 class="m-0 p-0">
+                                    :
+                                </h5>
+                            </div>
+                        </div>
+                        <div class="inputCol">
+                            <input formControlName="uomJarakUsrStopHump" type="number" class="form-control" name="inputUomJarakUsrStopHump" id="inputUomJarakUsrStopHump">
+                            <div *ngIf="!validFormStatus[22].status" id="emailHelp" class="text-danger form-text">
+                                <h5>
+                                    Kolom ini wajib diisi!!
+                                </h5>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="boxInputCol d-flex w-100" style="flex-wrap: wrap;">
+                        <div class="label row align-items-center">
+                            <label for="inputJarakUsrStopEnd" class="form-label col-10 p-0 m-0">
+                                <h5 class="m-0 p-0">
+                                    Jarak USR Stop End
+                                </h5>
+                            </label>
+                            <div class="titikDua col-2">
+                                <h5 class="m-0 p-0">
+                                    :
+                                </h5>
+                            </div>
+                        </div>
+                        <div class="inputCol">
+                            <input formControlName="jarakUsrStopEnd" type="number" class="form-control" name="inputJarakUsrStopEnd" id="inputJarakUsrStopEnd">
+                            <div *ngIf="!validFormStatus[23].status" id="emailHelp" class="text-danger form-text">
+                                <h5>
+                                    Kolom ini wajib diisi!!
+                                </h5>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="boxInputCol d-flex w-100" style="flex-wrap: wrap;">
+                        <div class="label row align-items-center">
+                            <label for="inputTolJarakUsrStopEnd" class="form-label col-10 p-0 m-0">
+                                <h5 class="m-0 p-0">
+                                    Tol Jarak USR Stop End
+                                </h5>
+                            </label>
+                            <div class="titikDua col-2">
+                                <h5 class="m-0 p-0">
+                                    :
+                                </h5>
+                            </div>
+                        </div>
+                        <div class="inputCol">
+                            <input formControlName="tolJarakUsrStopEnd" type="number" class="form-control" name="inputTolJarakUsrStopEnd" id="inputTolJarakUsrStopEnd">
+                            <div *ngIf="!validFormStatus[24].status" id="emailHelp" class="text-danger form-text">
+                                <h5>
+                                    Kolom ini wajib diisi!!
+                                </h5>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="boxInputCol d-flex w-100" style="flex-wrap: wrap;">
+                        <div class="label row align-items-center">
+                            <label for="inputUomJarakUsrStopEnd" class="form-label col-10 p-0 m-0">
+                                <h5 class="m-0 p-0">
+                                    UOM Jarak USR Stop End
+                                </h5>
+                            </label>
+                            <div class="titikDua col-2">
+                                <h5 class="m-0 p-0">
+                                    :
+                                </h5>
+                            </div>
+                        </div>
+                        <div class="inputCol">
+                            <input formControlName="uomJarakUsrStopEnd" type="number" class="form-control" name="inputUomJarakUsrStopEnd" id="inputUomJarakUsrStopEnd">
+                            <div *ngIf="!validFormStatus[25].status" id="emailHelp" class="text-danger form-text">
+                                <h5>
+                                    Kolom ini wajib diisi!!
+                                </h5>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="boxInputCol d-flex w-100" style="flex-wrap: wrap;">
+                        <div class="label row align-items-center">
+                            <label for="inputSetLampPly1" class="form-label col-10 p-0 m-0">
+                                <h5 class="m-0 p-0">
+                                    Set Lamp PLY1
+                                </h5>
+                            </label>
+                            <div class="titikDua col-2">
+                                <h5 class="m-0 p-0">
+                                    :
+                                </h5>
+                            </div>
+                        </div>
+                        <div class="inputCol">
+                            <input formControlName="setLampPly1" type="text" class="form-control" name="inputSetLampPly1" id="inputSetLampPly1">
+                            <div *ngIf="!validFormStatus[26].status" id="emailHelp" class="text-danger form-text">
+                                <h5>
+                                    Kolom ini wajib diisi!!
+                                </h5>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="boxInputCol d-flex w-100" style="flex-wrap: wrap;">
+                        <div class="label row align-items-center">
+                            <label for="inputUomSetLampPly1" class="form-label col-10 p-0 m-0">
+                                <h5 class="m-0 p-0">
+                                    UOM Set Lamp PLY1
+                                </h5>
+                            </label>
+                            <div class="titikDua col-2">
+                                <h5 class="m-0 p-0">
+                                    :
+                                </h5>
+                            </div>
+                        </div>
+                        <div class="inputCol">
+                            <input formControlName="uomSetLampPly1" type="text" class="form-control" name="inputUomSetLampPly1" id="inputUomSetLampPly1">
+                            <div *ngIf="!validFormStatus[27].status" id="emailHelp" class="text-danger form-text">
+                                <h5>
+                                    Kolom ini wajib diisi!!
+                                </h5>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="boxInputCol d-flex w-100" style="flex-wrap: wrap;">
+                        <div class="label row align-items-center">
+                            <label for="inputSetLampPly2" class="form-label col-10 p-0 m-0">
+                                <h5 class="m-0 p-0">
+                                    Set Lamp PLY2
+                                </h5>
+                            </label>
+                            <div class="titikDua col-2">
+                                <h5 class="m-0 p-0">
+                                    :
+                                </h5>
+                            </div>
+                        </div>
+                        <div class="inputCol">
+                            <input formControlName="setLampPly2" type="text" class="form-control" name="inputSetLampPly2" id="inputSetLampPly2">
+                            <div *ngIf="!validFormStatus[28].status" id="emailHelp" class="text-danger form-text">
+                                <h5>
+                                    Kolom ini wajib diisi!!
+                                </h5>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="boxInputCol d-flex w-100" style="flex-wrap: wrap;">
+                        <div class="label row align-items-center">
+                            <label for="inputUomSetLampPly2" class="form-label col-10 p-0 m-0">
+                                <h5 class="m-0 p-0">
+                                    UOM Set Lamp PLY2
+                                </h5>
+                            </label>
+                            <div class="titikDua col-2">
+                                <h5 class="m-0 p-0">
+                                    :
+                                </h5>
+                            </div>
+                        </div>
+                        <div class="inputCol">
+                            <input formControlName="uomSetLampPly2" type="text" class="form-control" name="inputUomSetLampPly2" id="inputUomSetLampPly2">
+                            <div *ngIf="!validFormStatus[29].status" id="emailHelp" class="text-danger form-text">
+                                <h5>
+                                    Kolom ini wajib diisi!!
+                                </h5>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ////////////////////////////////  -->
+
+                <div class="col-12 col-lg-3">
+                    <div class="boxInputCol d-flex w-100" style="flex-wrap: wrap;">
+                        <div class="label row align-items-center">
+                            <label for="inputSticherHighPress" class="form-label col-10 p-0 m-0">
+                                <h5 class="m-0 p-0">
+                                    Sticher High Press
+                                </h5>
+                            </label>
+                            <div class="titikDua col-2">
+                                <h5 class="m-0 p-0">
+                                    :
+                                </h5>
+                            </div>
+                        </div>
+                        <div class="inputCol">
+                            <input formControlName="sticherHighPress" type="text" class="form-control" name="inputSticherHighPress" id="inputSticherHighPress">
+                            <div *ngIf="!validFormStatus[30].status" id="emailHelp" class="text-danger form-text">
+                                <h5>
+                                    Kolom ini wajib diisi!!
+                                </h5>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="boxInputCol d-flex w-100" style="flex-wrap: wrap;">
+                        <div class="label row align-items-center">
+                            <label for="inputTolSticherHighPress" class="form-label col-10 p-0 m-0">
+                                <h5 class="m-0 p-0">
+                                    Tol Sticher High Press
+                                </h5>
+                            </label>
+                            <div class="titikDua col-2">
+                                <h5 class="m-0 p-0">
+                                    :
+                                </h5>
+                            </div>
+                        </div>
+                        <div class="inputCol">
+                            <input formControlName="tolSticherHighPress" type="text" class="form-control" name="inputTolSticherHighPress" id="inputTolSticherHighPress">
+                            <div *ngIf="!validFormStatus[31].status" id="emailHelp" class="text-danger form-text">
+                                <h5>
+                                    Kolom ini wajib diisi!!
+                                </h5>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="boxInputCol d-flex w-100" style="flex-wrap: wrap;">
+                        <div class="label row align-items-center">
+                            <label for="inputUomSticherHighPress" class="form-label col-10 p-0 m-0">
+                                <h5 class="m-0 p-0">
+                                    UOM Sticher High Press
+                                </h5>
+                            </label>
+                            <div class="titikDua col-2">
+                                <h5 class="m-0 p-0">
+                                    :
+                                </h5>
+                            </div>
+                        </div>
+                        <div class="inputCol">
+                            <input formControlName="uomSticherHighPress" type="text" class="form-control" name="inputUomSticherHighPress" id="inputUomSticherHighPress">
+                            <div *ngIf="!validFormStatus[22].status" id="emailHelp" class="text-danger form-text">
+                                <h5>
+                                    Kolom ini wajib diisi!!
+                                </h5>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="boxInputCol d-flex w-100" style="flex-wrap: wrap;">
+                        <div class="label row align-items-center">
+                            <label for="inputSticherLowPress" class="form-label col-10 p-0 m-0">
+                                <h5 class="m-0 p-0">
+                                    Sticher Low Press
+                                </h5>
+                            </label>
+                            <div class="titikDua col-2">
+                                <h5 class="m-0 p-0">
+                                    :
+                                </h5>
+                            </div>
+                        </div>
+                        <div class="inputCol">
+                            <input formControlName="sticherLowPress" type="text" class="form-control" name="inputSticherLowPress" id="inputSticherLowPress">
+                            <div *ngIf="!validFormStatus[23].status" id="emailHelp" class="text-danger form-text">
+                                <h5>
+                                    Kolom ini wajib diisi!!
+                                </h5>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="boxInputCol d-flex w-100" style="flex-wrap: wrap;">
+                        <div class="label row align-items-center">
+                            <label for="inputTolSticherLowPress" class="form-label col-10 p-0 m-0">
+                                <h5 class="m-0 p-0">
+                                    Tol Sticher Low Press
+                                </h5>
+                            </label>
+                            <div class="titikDua col-2">
+                                <h5 class="m-0 p-0">
+                                    :
+                                </h5>
+                            </div>
+                        </div>
+                        <div class="inputCol">
+                            <input formControlName="tolSticherLowPress" type="text" class="form-control" name="inputTolSticherLowPress" id="inputTolSticherLowPress">
+                            <div *ngIf="!validFormStatus[24].status" id="emailHelp" class="text-danger form-text">
+                                <h5>
+                                    Kolom ini wajib diisi!!
+                                </h5>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="boxInputCol d-flex w-100" style="flex-wrap: wrap;">
+                        <div class="label row align-items-center">
+                            <label for="inputUomSticherLowPress" class="form-label col-10 p-0 m-0">
+                                <h5 class="m-0 p-0">
+                                    UOM Sticher Low Press
+                                </h5>
+                            </label>
+                            <div class="titikDua col-2">
+                                <h5 class="m-0 p-0">
+                                    :
+                                </h5>
+                            </div>
+                        </div>
+                        <div class="inputCol">
+                            <input formControlName="uomSticherLowPress" type="text" class="form-control" name="inputUomSticherLowPress" id="inputUomSticherLowPress">
+                            <div *ngIf="!validFormStatus[25].status" id="emailHelp" class="text-danger form-text">
+                                <h5>
+                                    Kolom ini wajib diisi!!
+                                </h5>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="boxInputCol d-flex w-100" style="flex-wrap: wrap;">
+                        <div class="label row align-items-center">
+                            <label for="inputCenterRollPress" class="form-label col-10 p-0 m-0">
+                                <h5 class="m-0 p-0">
+                                    Center Roll Press
+                                </h5>
+                            </label>
+                            <div class="titikDua col-2">
+                                <h5 class="m-0 p-0">
+                                    :
+                                </h5>
+                            </div>
+                        </div>
+                        <div class="inputCol">
+                            <input formControlName="centerRollPress" type="text" class="form-control" name="inputCenterRollPress" id="inputCenterRollPress">
+                            <div *ngIf="!validFormStatus[26].status" id="emailHelp" class="text-danger form-text">
+                                <h5>
+                                    Kolom ini wajib diisi!!
+                                </h5>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="boxInputCol d-flex w-100" style="flex-wrap: wrap;">
+                        <div class="label row align-items-center">
+                            <label for="inputTolCenteRollPress" class="form-label col-10 p-0 m-0">
+                                <h5 class="m-0 p-0">
+                                    Tol Center Roll Press
+                                </h5>
+                            </label>
+                            <div class="titikDua col-2">
+                                <h5 class="m-0 p-0">
+                                    :
+                                </h5>
+                            </div>
+                        </div>
+                        <div class="inputCol">
+                            <input formControlName="tolCenterRollPress" type="text" class="form-control" name="inputTolCenteRollPress" id="inputTolCenteRollPress">
+                            <div *ngIf="!validFormStatus[27].status" id="emailHelp" class="text-danger form-text">
+                                <h5>
+                                    Kolom ini wajib diisi!!
+                                </h5>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="boxInputCol d-flex w-100" style="flex-wrap: wrap;">
+                        <div class="label row align-items-center">
+                            <label for="uomCenterRollPress" class="form-label col-10 p-0 m-0">
+                                <h5 class="m-0 p-0">
+                                    UOM Center Roll Press
+                                </h5>
+                            </label>
+                            <div class="titikDua col-2">
+                                <h5 class="m-0 p-0">
+                                    :
+                                </h5>
+                            </div>
+                        </div>
+                        <div class="inputCol">
+                            <input formControlName="uomCenterRollPress" type="text" class="form-control" name="uomCenterRollPress" id="uomCenterRollPress">
+                            <div *ngIf="!validFormStatus[28].status" id="emailHelp" class="text-danger form-text">
+                                <h5>
+                                    Kolom ini wajib diisi!!
+                                </h5>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+              <br>
+              <div class="d-flex justify-content-between">
+                  <button (click)="openPage('list-spec-dimensi')" type="button" class="btn btn-pill btn-secondary float-left rounded-4"><i class="fa fa-backward"> </i>
+                      <h5 class="m-0 p-0" style="font-weight: bold;">Back</h5>
+                  </button>
+                  <div class="d-flex">
+                    <div *ngIf="action.name=='edit'" class="me-2">
+                        <button *ngIf="formIsEdited; else cancelEdit" type="button" class="btn btn-pill btn-primary float-right rounded-4" style="color: black;" ><i class="fa fa-save"> </i><strong>
+                            <h5 class="m-0 p-0" style="font-weight: bold; width: max-content;" (click)="setFormStatus()">Disable Form</h5>
+                        </strong></button>
+                        <ng-template #cancelEdit>
+                            <button type="button" class="btn btn-pill btn-primary float-right rounded-4" style="color: black;" ><i class="fa fa-save"> </i><strong>
+                                <h5 class="m-0 p-0" style="font-weight: bold; width: max-content;" (click)="setFormStatus()">Enable Form</h5>
+                            </strong></button>
+                        </ng-template>
+                    </div>
+                    <button [disabled]="btnSaveDisable" type="button" class="btn btn-pill btn-success float-right rounded-4" style="color: black;" ><i class="fa fa-save"> </i><strong>
+                          <h5 class="m-0 p-0" style="font-weight: bold;" (click)="saveData()">Save</h5>
+                    </strong></button>
+                  </div>
+              </div>
+          </form>
+      </div>
+  </div>
+</div>

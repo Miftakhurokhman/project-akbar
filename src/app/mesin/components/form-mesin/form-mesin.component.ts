@@ -23,74 +23,151 @@ export class FormMesinComponent implements OnInit {
     "123"
   ]
 
-  kodeWipAlreadyExist : boolean = false;
+  formIsEdited = true
+  noMesinAlreadyExist : boolean = false;
 
   validFormStatus = [
     {
       status : true,
-      colName : "kodeWIP"
+      colName : "noMesin",
+      disableCol : true,
     },
     {
       status : true,
-      colName : "deskripsi"
+      colName : "lokasiMesin",
+      disableCol : true,
     },
     {
       status : true,
-      colName : "uomWIP"
+      colName : "kodeGrupMesin",
+      disableCol : true,
     },
     {
       status : true,
-      colName : "idProses"
+      colName : "idProses",
+      disableCol : true,
     },
     {
       status : true,
-      colName : "status"
+      colName : "proses",
+      disableCol : true,
+    },
+    {
+      status : true,
+      colName : "gedung",
+      disableCol : true,
+    },
+    {
+      status : true,
+      colName : "status",
+      disableCol : true,
     },
   ]
 
+  dummyEditValue = {
+    noMesin : "TES",
+    lokasiMesin : "deskripsi tes",
+    kodeGrupMesin : "2",
+    idProses : "1",
+    proses : "One",
+    gedung : "1",
+    status : "Yes"
+  }
+
   reactiveForm = this.fb.group({
-    kodeWIP : ["", Validators.required],
-    deskripsi : [null, Validators.required],
-    uomWIP : [null, Validators.required],
-    idProses : [null, Validators.required],
-    status : ["Yes", Validators.required]
-  })
+    noMesin: [{ value: '', disabled: true }, Validators.required],
+    lokasiMesin: [{ value: '', disabled: true}, Validators.required],
+    kodeGrupMesin: [{ value: '', disabled: true}, Validators.required],
+    idProses: [{ value: '', disabled: true}, Validators.required],
+    proses: [{ value: '', disabled: true}, Validators.required],
+    gedung: [{ value: '', disabled: true}, Validators.required],
+    status: [{ value: '', disabled: true}, Validators.required]
+  });
 
   ngOnInit(): void {
       // CHECKING TIPE FORM
       this.activatedRoute.queryParams.subscribe( params => {
         this.reactiveForm.reset();
         this.action.name = params['action']
-        if (this.action.name === "add") {
+        if (this.action.name === "edit") {
+          this.reactiveForm.patchValue(this.dummyEditValue);
+          this.formIsEdited = false
+          // MEMBUAT BUTTON SAVE DISABLE SAAT VALUE DARI FORM TIDAK SESUAI
+          this.reactiveForm.valueChanges.subscribe(() => {
+            this.btnSaveDisable = !this.formIsEdited || this.reactiveForm.invalid;
+          });
+        } else if ( this.action.name === 'add') {
+          this.reactiveForm.enable();     
+          this.reactiveForm.get('status')?.disable();
+          this.reactiveForm.get('status')?.patchValue("Yes");
+          this.reactiveForm.get('proses')?.disable();
+          // MEMBUAT BUTTON SAVE DISABLE SAAT VALUE DARI FORM TIDAK SESUAI
+          this.reactiveForm.valueChanges.subscribe(() => {
+            this.btnSaveDisable = this.checkKodeWIP() || this.reactiveForm.invalid;
+          });
+        }
+      })
+
+      this.reactiveForm.get('idProses')?.valueChanges.subscribe(value => {
+        if (value == '1') {
+          this.reactiveForm.get('proses')?.patchValue('One')
+        } else if ( value == '2') {
+          this.reactiveForm.get('proses')?.patchValue('Two')
+        } else if (value == '3') {
+          this.reactiveForm.get('proses')?.patchValue('Three')
         }
       })
 
       // UPPERCASE KODE WIP
-      this.uppercaseValue("kodeWIP");
-      this.uppercaseValue('uomWIP')
-
-      // MEMBUAT BUTTON SAVE DISABLE SAAT VALUE DARI FORM TIDAK SESUAI
-      this.reactiveForm.valueChanges.subscribe(() => {
-        this.btnSaveDisable = this.checkKodeWIP() || this.reactiveForm.invalid;
-      });
+      this.uppercaseValue("noMesin");
+      this.uppercaseValue('lokasiMesin')
 
 
       // CHECK VALIDASI PER KOLOM
-      this.reactiveForm.get("kodeWIP")?.valueChanges.subscribe(() => {this.checkValidation(0)});
-      this.reactiveForm.get("deskripsi")?.valueChanges.subscribe(() => {this.checkValidation(1)});
-      this.reactiveForm.get("uomWIP")?.valueChanges.subscribe(() => {this.checkValidation(2)});
+      this.reactiveForm.get("noMesin")?.valueChanges.subscribe(() => {this.checkValidation(0)});
+      this.reactiveForm.get("lokasiMesin")?.valueChanges.subscribe(() => {this.checkValidation(1)});
+      this.reactiveForm.get("kodeGrupMesin")?.valueChanges.subscribe(() => {this.checkValidation(2)});
       this.reactiveForm.get("idProses")?.valueChanges.subscribe(() => {this.checkValidation(3)});
-      this.reactiveForm.get("status")?.valueChanges.subscribe(() => {this.checkValidation(4)});
+      this.reactiveForm.get("proses")?.valueChanges.subscribe(() => {this.checkValidation(4)});
+      this.reactiveForm.get("gedung")?.valueChanges.subscribe(() => {this.checkValidation(5)});
+      this.reactiveForm.get("status")?.valueChanges.subscribe(() => {this.checkValidation(6)});
       
   }
 
-// CHECKING APAKAH ID TELAH DIGUNAKAN
+  setFormStatus () {
+    this.formIsEdited = !this.formIsEdited
+    
+    
+    if (this.formIsEdited) {
+      if (!this.reactiveForm.invalid) {
+        this.btnSaveDisable = false
+      }
+    } else {
+      this.btnSaveDisable = true;
+    }
+    if (this.formIsEdited) {
+      this.reactiveForm.get('lokasiMesin')?.enable();      
+      this.reactiveForm.get('kodeGrupMesin')?.enable();      
+      this.reactiveForm.get('gedung')?.enable();
+      this.reactiveForm.get('status')?.enable();      
+      this.reactiveForm.get('idProses')?.enable();
+    } else {
+      this.reactiveForm.get('lokasiMesin')?.disable();      
+      this.reactiveForm.get('kodeGrupMesin')?.disable();      
+      this.reactiveForm.get('gedung')?.enable();
+      this.reactiveForm.get('status')?.disable();      
+      this.reactiveForm.get('idProses')?.disable();
+    }
+    
+  }
+
+  // CHECKING APAKAH ID TELAH DIGUNAKAN
   checkKodeWIP (): boolean {
-    if (this.dummyListID.find((id) => id === this.reactiveForm.get("kodeWIP")?.value?.toUpperCase() )) {
-      this.kodeWipAlreadyExist = true;
+    if (this.dummyListID.find((id) => id === this.reactiveForm.get("noMesin")?.value?.toUpperCase() )) {
+      this.noMesinAlreadyExist = true;
       return true
     } else {
-      this.kodeWipAlreadyExist = false;
+      this.noMesinAlreadyExist = false;
       return false
     }
   }
@@ -104,7 +181,6 @@ export class FormMesinComponent implements OnInit {
   }
 
   checkValidation(index: number) {
-    
       const value = this.reactiveForm.get(this.validFormStatus[index].colName)
 
       if (value?.invalid) {
@@ -122,9 +198,6 @@ export class FormMesinComponent implements OnInit {
 
   saveData() {
     if (this.action.name === 'add') {
-      
-    console.log('tes');
-    
       console.log(this.reactiveForm.value)
     }
   }
